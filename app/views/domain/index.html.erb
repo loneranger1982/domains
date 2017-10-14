@@ -1,0 +1,37 @@
+<div class="box">
+    <div class="box-header with-border">
+      <h3 class="box-title">Expiring Domains</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+      <table class="table table-bordered">
+  
+      <tr>
+        <th>Domain Name</th>
+        <th>Domain Price</th>
+        <th>Number Of Bids</th>
+        <th>Domain Valuation</th>
+        
+        <th>Traffic</th>
+        <th>is Adult</th>
+        <th>Auction End Time</th>
+        <th>Actions</th>
+      </tr>
+    <% @domains.each do |domain| %>
+      <tr>
+        <td><%= domain.domainName %></td>
+        <td><%= domain.price %></td>
+        <td><%= domain.numberOfBids %></td>
+        <td><%= domain.valuation %></td>
+        <td><%= domain.traffic %></td>
+        <td><%= domain.isAdult %></td>
+        <td><%= domain.auctionEndTime%></td>
+        <td></td>
+      </tr>
+    <% end %>
+      </table>
+      
+      <div class="box-footer clearfix">
+            <%= will_paginate @domains,:class=>'box-tools',:renderer => 'BootstrapPaginationHelper::LinkRenderer'%>
+            </div>
+          </div>
