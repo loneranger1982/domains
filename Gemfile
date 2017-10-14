@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'active_link_to'
+gem 'httparty'
 gem 'will_paginate'
 gem 'saxerator'
 gem 'nokogiri'

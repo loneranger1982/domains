@@ -7,6 +7,7 @@
       <table class="table table-bordered">
   
       <tr>
+        <th>ID</th>
         <th>Domain Name</th>
         <th>Domain Price</th>
         <th>Number Of Bids</th>
@@ -15,17 +16,20 @@
         <th>Traffic</th>
         <th>is Adult</th>
         <th>Auction End Time</th>
+        <th>Has Website</th>
         <th>Actions</th>
       </tr>
     <% @domains.each do |domain| %>
       <tr>
+        <td><%= domain.id %></td>
         <td><%= domain.domainName %></td>
         <td><%= domain.price %></td>
         <td><%= domain.numberOfBids %></td>
         <td><%= domain.valuation %></td>
         <td><%= domain.traffic %></td>
         <td><%= domain.isAdult %></td>
-        <td><%= domain.auctionEndTime%></td>
+        <td><%= domain.auctionEndTime %></td>
+        <td><%= domain.hasWebsite %></td>
         <td></td>
       </tr>
     <% end %>

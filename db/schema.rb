@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171014101456) do
+ActiveRecord::Schema.define(version: 20171014145902) do
 
   create_table "domains", force: :cascade do |t|
     t.string   "domainName"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 20171014101456) do
     t.integer  "domainAge"
     t.string   "source"
     t.integer  "traffic"
+    t.boolean  "scraped"
+    t.boolean  "hasWebsite"
+    t.boolean  "isWordpress"
+  end
+
+  create_table "filters", force: :cascade do |t|
+    t.string   "name"
+    t.string   "selector"
+    t.string   "regex"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

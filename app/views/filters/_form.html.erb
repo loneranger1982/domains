@@ -1,0 +1,45 @@
+<div class="box box-primary">
+  <div class="box-header with-border">
+    <h3 class="box-title">Create Filter</h3>
+  </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            
+<%= form_for(@filter) do |f| %>
+  <% if @filter.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@filter.errors.count, "error") %> prohibited this filter from being saved:</h2>
+
+    <ul>
+      <% @filter.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <div class="box-body">
+    <div class="form-group">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="form-grou">
+      <%= f.label :selector %><br>
+      <%= f.text_field :selector %>
+    </div>
+    <div class="form-grou">
+      <%= f.label :regex %><br>
+      <%= f.text_field :regex %>
+    </div>
+  
+  </div>
+    <div class="box-footer">
+                <%= f.submit %>
+              </div>
+            </form>
+          </div>
+<% end %>
+
+
+<!-- general form elements -->
+
+
