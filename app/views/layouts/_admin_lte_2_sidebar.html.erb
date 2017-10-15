@@ -36,6 +36,9 @@
       <li class="header">Filters</li>
       <li class="<%= active_link_to_class(filters_path, active: :inclusive)%>"><%= link_to(filters_path) do  %><i class='fa fa-link'></i> <span>List Filters</span><% end %></li>
       <li class="<%= active_link_to_class(new_filter_path, active: :inclusive)%>"><%= link_to(new_filter_path) do  %><i class='fa fa-link'></i> <span>Create Filter</span><% end %></li>
+      
+      <li class="header">Scraper</li>
+      <li class="<%= active_link_to_class(loadDomain_path, active: :inclusive)%>"><%= link_to(loadDomain_path) do  %><i class='fa fa-link'></i> <span>Scrape Domain</span><% end %></li>
     </ul><!-- /.sidebar-menu -->
   </section>
   <!-- /.sidebar -->
