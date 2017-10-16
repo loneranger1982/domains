@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :filters
   devise_for :users
   get 'loadDomain' => 'scraper#loadDomain'
+  get 'domains2' => 'domain#datatable'
   post 'scrapedomain' => 'scraper#scrapedomain'
   
   # The priority is based upon order of creation: first created -> highest priority.

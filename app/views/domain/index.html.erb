@@ -4,8 +4,8 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body">
-      <table class="table table-bordered">
-  
+      <table class="table table-bordered" id="domains" data-source="<%= domain_index_path(format: "json") %>">
+      <thead>
       <tr>
         <th>ID</th>
         <th>Domain Name</th>
@@ -17,25 +17,20 @@
         <th>is Adult</th>
         <th>Auction End Time</th>
         <th>Has Website</th>
-        <th>Actions</th>
+        
       </tr>
-    <% @domains.each do |domain| %>
-      <tr>
-        <td><%= domain.id %></td>
-        <td><%= domain.domainName %></td>
-        <td><%= domain.price %></td>
-        <td><%= domain.numberOfBids %></td>
-        <td><%= domain.valuation %></td>
-        <td><%= domain.traffic %></td>
-        <td><%= domain.isAdult %></td>
-        <td><%= domain.auctionEndTime %></td>
-        <td><%= domain.hasWebsite %></td>
-        <td></td>
-      </tr>
-    <% end %>
+      </thead>
+      <tbody>
+
+    </tbody>
       </table>
       
       <div class="box-footer clearfix">
-            <%= will_paginate @domains,:class=>'box-tools',:renderer => 'BootstrapPaginationHelper::LinkRenderer'%>
+        Filter Has Websites :
+            <select id="haswebsite">
+              <option value=''>Has Websites</option>
+              <option value="t">True</option>
+              <option value="f">False</option>
+            </select>
             </div>
           </div>

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+gem 'ajax-datatables-rails'
 gem 'active_link_to'
 gem 'httparty'
 gem 'will_paginate'
