@@ -1,0 +1,60 @@
+<section class="content">
+  
+  <div class="row">
+    <div class="col-md-12">
+      
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">List Users</h3>
+        </div>
+        
+        <div class="box-body">
+          
+          <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Sign In Count</th>
+      <th>Last Sign In</th>
+      <th>Last Sign In IP</th>
+      <th>Confirmed At</th>
+      <th>is Admin</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.fullname %></td>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td><%= user.sign_in_count %></td>
+        <td><%= user.last_sign_in_at %></td>
+        <td><%= user.last_sign_in_ip %></td>
+        <td><%= user.confirmed_at %></td>
+        <td><%= user.admin %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+        </div>
+        <div class="box-footer clearfix">
+          <%= link_to 'New User', new_user_path %>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+
+<br>
+
+
