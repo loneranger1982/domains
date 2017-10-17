@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :filters
   devise_for :users
   get 'loadDomain' => 'scraper#loadDomain'
-  get 'domains2' => 'domain#datatable'
+ post 'domain/domain_index' => 'domain#index'
   post 'scrapedomain' => 'scraper#scrapedomain'
   
   # The priority is based upon order of creation: first created -> highest priority.
@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'welcome#home'
   resources :domain
+  
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

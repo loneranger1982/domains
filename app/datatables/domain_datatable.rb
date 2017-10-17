@@ -7,7 +7,7 @@ class DomainDatatable
 
   def as_json(options = {})
     {
-      draw: params[:sEcho].to_i,
+      draw: params[:draw].to_i,
       recordsTotal: Domain.count,
       recordsFiltered: products.total_entries,
       data: data
@@ -28,6 +28,7 @@ private
         product.isAdult,
         product.auctionEndTime,
         product.hasWebsite,
+        product.source
         
       ]
     end
@@ -38,7 +39,7 @@ private
   end
 
   def fetch_products
-    products = Domain.order("#{sort_column} #{sort_direction}")
+    products = Domain.order("id ASC")
     products = products.page(page).per_page(per_page)
     if params["search"]["value"].present?
       
@@ -48,24 +49,29 @@ private
       search = params["columns"]["8"]["search"]["value"]
       products = products.where(["domains.hasWebsite = ?", search])
     end
+    if params["columns"]["9"]["search"]["value"].length > 0
+      search = params["columns"]["9"]["search"]["value"]
+      products = products.where(["domains.source = ?", search])
+    end
     products
   end
 
   def page
-    params[:iDisplayStart].to_i/per_page + 1
+    params[:start].to_i/per_page + 1
   end
 
   def per_page
-    params[:iDisplayLength].to_i > 0 ? params[:iDisplayLength].to_i : 10
+    params[:length].to_i > 0 ? params[:length].to_i : 10
   end
 
   def sort_column
-    columns = %w[id domainName price numberOfBids valuation traffic isAdult auctionEndTime hasWebsite]
-    columns[params[:iSortCol_0].to_i]
+    columns = %w[id domainName price numberOfBids valuation traffic isAdult auctionEndTime hasWebsite source]
+    
+    
   end
 
   def sort_direction
-    params[:sSortDir_0] == "desc" ? "desc" : "asc"
+    params["order"]["0"]["dir"] == "desc" ? "desc" : "asc"
   end
   
   

@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'tsv'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'ajax-datatables-rails'
 gem 'active_link_to'

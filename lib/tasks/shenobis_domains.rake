@@ -41,6 +41,22 @@ namespace :shenobis_domains do
   end
   end
 
+  task import_snapnames: :environment do
+    begin
+      file=File.new(Dir.pwd + "/snpalist.txt").drop(3).join().squeeze(" ").gsub!(' ',"\t")
+      header="domain\tbid\tend\t\r\n"
+      file.prepend(header)
+      #puts file.inspect
+      TSV.parse(file)do |csv|
+        domains=Domain.new
+        domains.domainName=csv[0]
+        domains.numberOfBids=csv[1]
+        domains.auctionEndTime=Time.strptime(csv[2],"%D")
+        domains.source="SnapNames"
+        domains.save
+      end
+    end
+  end
 
   task scrape_domains: :environment do
     

@@ -1,1 +1,59 @@
-<h1>Welcome</h1>
+<section class="content">
+  <div class="row">
+    <div class="col-lg-3 col-xs-6">
+      
+      <div class="info-box">
+        
+        <span class="info-box-icon bg-aqua">
+          <span class="fa fa-globe"></span>
+        </span>
+        
+        <div class="info-box-content">
+          <span class="info-box-text">Domain Imported</span>
+          <span class="info-box-number">
+            <%= @domain %>
+          </span>
+        </div>
+        
+        
+        
+      </div>
+    </div>  
+    <div class="col-lg-3 col-xs-6">
+      <div class="info-box">
+        
+        <span class="info-box-icon bg-yellow">
+          <span class="fa fa-filter"></span>
+        </span>
+        
+        <div class="info-box-content">
+          <span class="info-box-text">Domain Filtered</span>
+          <span class="info-box-number">
+            <%= @filtered %>
+          </span>
+        </div>
+        
+      </div>
+      
+    </div>
+     <div class="col-lg-3 col-xs-6">
+      <div class="info-box">
+        
+        <span class="info-box-icon bg-red">
+          <span class="fa fa-star-o"></span>
+        </span>
+        
+        <div class="info-box-content">
+          <span class="info-box-text">Domain With Websites</span>
+          <span class="info-box-number">
+            <%= @websites %>
+          </span>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  
+  
+</section>
