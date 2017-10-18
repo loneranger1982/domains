@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   resources :filters
   devise_for :users, :controllers => {registrations: 'registrations'}
-  scope "/admin" do
-   resources :users
-  end
+
   
   get 'loadDomain' => 'scraper#loadDomain'
  post 'domain/domain_index' => 'domain#index'

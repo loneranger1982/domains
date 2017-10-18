@@ -1,4 +1,4 @@
-module Admin:
+
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -74,3 +74,4 @@ class UsersController < ApplicationController
       params.fetch(:user, {}).permit(:email,:password,:fullname,:username)
     end
 end
+
