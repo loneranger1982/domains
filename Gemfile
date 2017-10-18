@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+ruby '2.3.4'
+gem 'devise'
 gem 'tsv'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'ajax-datatables-rails'
@@ -57,8 +59,7 @@ end
 
 group :production do
   
-  gem 'pg'
+
   gem 'rails_12factor'
 end
 
-gem 'devise'
