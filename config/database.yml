@@ -8,8 +8,8 @@ default: &default
       adapter: postgresql
       encoding: sql_ascii
       pool: 5
-      username:
-      password: 
+      username:user
+       
       
 
 development:
@@ -25,4 +25,4 @@ test:
 
 production:
   <<: *default
-  database: db/app_production
+  database: app-dev
