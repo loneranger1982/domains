@@ -90,7 +90,7 @@ namespace :shenobis_domains do
         domains.save
       end
     end
-  ends
+  end
 
   task scrape_domains: :environment do
     
