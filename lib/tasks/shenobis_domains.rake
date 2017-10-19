@@ -2,6 +2,22 @@ namespace :shenobis_domains do
   desc "TODO"
   task import_json: :environment do
   begin
+    require 'net/ftp'
+    require 'zip'
+    ftp = Net::FTP.new
+    ftp.connect("ftp.godaddy.com",21)
+    ftp.login("auctions","")
+    ftp.passive=true
+    ftp.getbinaryfile('expiring_service_auctions.xml.zip',"godaddy.zip")
+    Zip::File.open("godaddy.zip") do |zipfile|
+      
+      zipfile.each do |f|
+        
+        zipfile.extract(f,Dir.pwd+"/" + f.name)
+        
+      end
+      
+    end
    parser = Saxerator.parser(File.new(Dir.pwd + "/expiring_service_auctions.xml"))
    parser.for_tag(:item).each do |item|
       

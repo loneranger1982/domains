@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.3.4'
+gem 'rubyzip'
 gem 'devise'
 gem 'tsv'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
