@@ -59,6 +59,24 @@ namespace :shenobis_domains do
 
   task import_snapnames: :environment do
     begin
+    Net::HTTP.start("https://www.snapnames.com/",Net::HTTP.https_default_port()) do |http|
+      
+      resp=http.get("file_dl.sn?file=snpalist.zip")
+      open("snpalist.zip",'wb') do |file|
+        file.write(resp.body)
+      end
+      
+    end
+    
+    Zip::File.open("snapnames.zip") do |zipfile|
+      
+      zipfile.each do |f|
+        
+        zipfile.extract(f,Dir.pwd+"/" + f.name)
+        
+      end
+      
+    end
       file=File.new(Dir.pwd + "/snpalist.txt").drop(3).join().squeeze(" ").gsub!(' ',"\t")
       header="domain\tbid\tend\t\r\n"
       file.prepend(header)
