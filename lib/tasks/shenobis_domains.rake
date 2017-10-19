@@ -85,12 +85,12 @@ namespace :shenobis_domains do
         domains=Domain.new
         domains.domainName=csv[0]
         domains.numberOfBids=csv[1]
-        domains.auctionEndTime=Time.strptime(csv[2],"%D")
+        domains.auctionEndTime=Time.strptime(csv[2],"%m/%d/%Y")
         domains.source="SnapNames"
         domains.save
       end
     end
-  end
+  ends
 
   task scrape_domains: :environment do
     
