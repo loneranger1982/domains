@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  
+  include Sidekiq::Worker
   def home
     @domain=Domain.count
     @filtered=Domain.where.not(hasWebsite: nil).count
