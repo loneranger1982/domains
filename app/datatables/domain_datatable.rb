@@ -47,11 +47,11 @@ private
     end
     if params["columns"]["8"]["search"]["value"].length > 0
       search = params["columns"]["8"]["search"]["value"]
-      products = products.where(["domains.hasWebsite = ?", search])
+      products = products.where(hasWebsite: search)
     end
     if params["columns"]["9"]["search"]["value"].length > 0
       search = params["columns"]["9"]["search"]["value"]
-      products = products.where(["domains.source = ?", search])
+      products = products.where(source: search)
     end
     products
   end

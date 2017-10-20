@@ -15,9 +15,9 @@ class DomainController < ApplicationController
     @domain =Domain.find(params[:id])
     loaddomain(@domain)
     @filter=Filter.all
-    @fil=matchfilter
+    @fil=matchfilter(true)
    
-    HardWorker.perform_async('bob',5)
+   
     
     
 
