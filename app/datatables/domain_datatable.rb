@@ -43,7 +43,7 @@ private
     products = products.page(page).per_page(per_page)
     if params["search"]["value"].present?
       
-      products = products.where("domainName like :search", search: "%#{params['search']['value']}%")
+      products = products.where(domainName: "like :search", search: "%#{params['search']['value']}%")
     end
     if params["columns"]["8"]["search"]["value"].length > 0
       search = params["columns"]["8"]["search"]["value"]

@@ -53,7 +53,7 @@ module Parsedomains
         if @@html.length < f.regex.to_i
           updatedomain(false)
           matched="fa-check"
-          return matched
+          return fil[f.id]=matched
         end
         
       end
@@ -64,6 +64,7 @@ module Parsedomains
         #f.matched="fa-check"
         updatedomain(false)
         matched="fa-check"
+        return fil[f.id]=matched
       else
         #f.matched="fa-ban"
         updatedomain(true)
