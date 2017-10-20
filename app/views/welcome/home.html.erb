@@ -79,11 +79,12 @@
             <% jid= work['payload']['jid'] %>
             <% at=Sidekiq::Status::at jid %>
             <% total=Sidekiq::Status::total jid %>
+            <% data= Sidekiq::Status::get_all jid %>
             <% percent= at.to_f / total.to_f * 100 %>
             <%percent= percent.round(2) %>
             <tr>
               <td><%= process_id %></td>
-              <td><%= thread_id %></td>
+              <td><%= data["worker"] %></td>
               <td><%= Sidekiq::Status::status jid %></td>
               <td>
                 <div class="progress progress-xs">
@@ -92,6 +93,42 @@
                 
                 </td>
                 <td><%= at.to_s + " / " + total.to_s %></td>
+            </tr>
+            <% end %>
+          </tbody>
+          
+        </table>
+      </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="row">
+    
+    <div class="col-md-12">
+      <div class="box">
+      <div class="box-header">
+        <h3 class="box-title">Queued Jobs</h3>
+      </div>
+      <div class="box-body">
+        
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>id</th>
+              <th>Job Name</th>
+              <th>Arguments</th>
+              
+            </tr>
+            
+            <% @queue.each do |q|%>
+            
+            <tr>
+              <td><%= q.jid %></td>
+              <td><%= q.klass %></td>
+              <td><%= q.args %></td>
+              <td><%= q.created_at %></td>
             </tr>
             <% end %>
           </tbody>

@@ -3,9 +3,9 @@ class ParsedomainsWorker
   include Sidekiq::Status::Worker
   include Parsedomains
 
-  def perform(*args)
+  def perform(limit=100,offset=0)
     i=0
-    domains=Domain.all
+    domains=Domain.limit(limit).offset(offset)
     total domains.count
     domains.each do |d|
       i=i+1

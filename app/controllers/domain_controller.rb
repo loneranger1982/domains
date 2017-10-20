@@ -19,9 +19,15 @@ class DomainController < ApplicationController
 
   end
   def parsedomains
-    ParsedomainsWorker.perform_async()
+    domains=Domain.where(:scraped,nil).count
+    i=0
+    while i < domains
+      ParsedomainsWorker.perform_async(100,i)
+      i=i+100
+    end
+    
     flash[:notice]="Parse Domains Added to Queue Successfully"
-    redirect_to domain_index_path
+    redirect_to root_path
     
   end
   def datatable

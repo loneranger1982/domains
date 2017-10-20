@@ -5,5 +5,6 @@ require 'sidekiq/api'
     @filtered=Domain.where.not(hasWebsite: nil).count
     @websites=Domain.where(hasWebsite: true).count
     @jobs=Sidekiq::Workers.new
+    @queue=Sidekiq::Queue.new
   end
 end

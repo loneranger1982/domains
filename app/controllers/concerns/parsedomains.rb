@@ -10,14 +10,11 @@ module Parsedomains
         @@html = HTTParty.get("http://www." + domain.domainName,follow_redirects: true)
         #puts page
       rescue Net::OpenTimeout
-        domain.hasWebsite=false
-        domain.save
+        updatedomain(false)
       rescue SocketError
-        domain.hasWebsite=false
-        domain.save
+        updatedomain(false)
       rescue HTTParty::RedirectionTooDeep
-        domain.hasWebsite=false
-        domain.save
+        updatedomain(false)
     end
     
     @scraped=@@html
@@ -81,6 +78,7 @@ module Parsedomains
   
   def updatedomain(result)
     @@domain.hasWebsite=result
+    @@domain.scraped=true
     @@domain.save
   end
   
