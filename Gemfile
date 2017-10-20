@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.4'
+gem 'sidekiq'
+gem 'redis'
 gem 'rubyzip'
 gem 'devise'
 gem 'tsv'
@@ -15,7 +17,7 @@ gem 'adminlte2-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 gem 'pg'
-gem 'puma'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -60,7 +62,7 @@ end
 
 group :production do
   
-
+gem 'puma'
   gem 'rails_12factor'
 end
 

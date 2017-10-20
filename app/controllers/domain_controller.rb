@@ -1,4 +1,5 @@
 class DomainController < ApplicationController
+  include Parsedomains
   
   def index
     respond_to do |format|
@@ -9,23 +10,17 @@ class DomainController < ApplicationController
   end
   
   def show
+    
+    
     @domain =Domain.find(params[:id])
-    @scraped=HTTParty.get("http://www." + @domain.domainName,follow_redirects:true)
-    pp=Nokogiri(@scraped)
-    @fil=Hash.new
-    @filter=Filter.all.each do |f|
-      
-      if pp.css(f.selector).text =~ Regexp.new(f.regex)
-        #domain.hasWebsite=false
-        f.matched="fa-check"
-      else
-        f.matched="fa-ban"
-        
-        #domain.hasWebsite=true
-      end
-      @fil[f.id]=f.matched
-      
-    end
+    loaddomain(@domain)
+    @filter=Filter.all
+    @fil=matchfilter
+   
+    HardWorker.perform_async('bob',5)
+    
+    
+
   end
   
   def datatable
