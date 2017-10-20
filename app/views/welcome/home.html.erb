@@ -74,7 +74,7 @@
               <th>Progress</th>
             </tr>
             
-            <%= @jobs.each do |process_id, thread_id, work|%>
+            <% @jobs.each do |process_id, thread_id, work|%>
             <% jid= work['payload']['jid'] %>
             <tr>
               <td><%= process_id %></td>

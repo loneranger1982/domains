@@ -6,7 +6,8 @@ module Parsedomains
   
   def loaddomain (domain)
     @@domain=domain
-    @scraped=HTTParty.get("http://www." + domain.domainName,follow_redirects:true)
+    @@html=HTTParty.get("http://www." + domain.domainName,follow_redirects:true)
+    @scraped=@@html
   end
   
   def loadIntoNoko 
@@ -25,6 +26,7 @@ module Parsedomains
       when "src"
         if !@@pp.css(f.selector)[0].nil?
           findHTML=@@pp.css(f.selector)[0]["src"]
+          
         end
         
       when "text"
@@ -32,7 +34,8 @@ module Parsedomains
         
       end
       
-      if  findHTML =~ Regexp.new(f.regex)
+      
+      if findHTML =~ Regexp.new(f.regex)
         
         #f.matched="fa-check"
         updatedomain(false)
