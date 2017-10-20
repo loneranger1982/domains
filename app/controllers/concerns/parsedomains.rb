@@ -6,7 +6,20 @@ module Parsedomains
   
   def loaddomain (domain)
     @@domain=domain
-    @@html=HTTParty.get("http://www." + domain.domainName,follow_redirects:true)
+    begin
+        @@html = HTTParty.get("http://www." + domain.domainName,follow_redirects: true)
+        #puts page
+      rescue Net::OpenTimeout
+        domain.hasWebsite=false
+        domain.save
+      rescue SocketError
+        domain.hasWebsite=false
+        domain.save
+      rescue HTTParty::RedirectionTooDeep
+        domain.hasWebsite=false
+        domain.save
+    end
+    
     @scraped=@@html
   end
   
