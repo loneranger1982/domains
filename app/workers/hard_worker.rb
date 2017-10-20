@@ -37,7 +37,7 @@ class HardWorker
        
        end
      
-      puts hash
+      
       domains=Domain.new
       domains.domainName=item['title']
       domains.link=item['link']
