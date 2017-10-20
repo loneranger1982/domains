@@ -75,11 +75,12 @@
             </tr>
             
             <%= @jobs.each do |process_id, thread_id, work|%>
-           
+            <% jid= work['payload']['jid'] %>
             <tr>
               <td><%= process_id %></td>
               <td><%= thread_id %></td>
-              <td><%= Sidekiq::Status::status work['payload']['jid'] %></td>
+              <td><%= Sidekiq::Status::status jid %></td>
+              <td><%= Sidekiq:Status::get_all jid %></td>
             </tr>
             <% end %>
           </tbody>
