@@ -29,6 +29,10 @@ module Parsedomains
 
   
   def matchfilter(show=false)
+    
+    if @@html.length < 10 
+        updatedomain(false)
+    end
     loadIntoNoko
     filters=Filter.all
     fil=Hash.new
@@ -44,6 +48,13 @@ module Parsedomains
         
       when "text"
         findHTML=@@pp.css(f.selector).text
+      
+      when "htmllength"
+        if @@html.length < f.regex.to_i
+          updatedomain(false)
+          matched="fa-check"
+          return matched
+        end
         
       end
       

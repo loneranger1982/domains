@@ -12,7 +12,7 @@
       <p>Number of Bids : <%= @domain.numberOfBids %></p>
       <p>Valuation : <%= @domain.valuation %></p>
       <p>Auction Link : <a href="<%= @domain.link %>"><%= @domain.source %></a></p>
-      
+      <%= @scraped.length %>
       <div>
         <h2>Filters</h2>
       <% @filter.each do |f| %>
