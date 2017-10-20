@@ -80,7 +80,7 @@
               <td><%= process_id %></td>
               <td><%= thread_id %></td>
               <td><%= Sidekiq::Status::status jid %></td>
-              <td><%= Sidekiq:Status::get_all jid %></td>
+              <td><%= Sidekiq::Status::get_all jid %></td>
             </tr>
             <% end %>
           </tbody>
