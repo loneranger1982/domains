@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   scope "/admin" do
    resources :users
   end
-  
+  require 'sidekiq/web'
+  require 'sidekiq-status/web'
+mount Sidekiq::Web => '/sidekiq'
   get 'loadDomain' => 'scraper#loadDomain'
  post 'domain/domain_index' => 'domain#index'
   post 'scrapedomain' => 'scraper#scrapedomain'

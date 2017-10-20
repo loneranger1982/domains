@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.3.4'
+gem 'sidekiq-status'
 gem 'sidekiq'
 gem 'redis'
 gem 'rubyzip'
@@ -48,6 +49,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'puma'
   # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 end

@@ -1,9 +1,12 @@
 class HardWorker
   include Sidekiq::Worker
+  include Sidekiq::Status::Worker
 
   def perform(*args)
     require 'net/ftp'
     require 'zip'
+    total=0
+    at=0
     ftp = Net::FTP.new
     ftp.connect("ftp.godaddy.com",21)
     ftp.login("auctions","")
@@ -13,11 +16,12 @@ class HardWorker
       
       zipfile.each do |f|
         
-        zipfile.extract(f,Dir.pwd+"/" + f.name)
+        zipfile.extract(f,Dir.pwd+"/" + f.name){true}
         
       end
       
     end
+    total=File.size(Dir.pwd + "/expiring_service_auctions.xml")
     parser = Saxerator.parser(File.new(Dir.pwd + "/expiring_service_auctions.xml"))
     parser.for_tag(:item).each do |item|
       
@@ -48,7 +52,7 @@ class HardWorker
       domains.source="GoDaddy Auctions"
      
       domains.save
-     
+     at=at + 100
     
     end
   end

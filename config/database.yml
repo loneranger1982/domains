@@ -27,4 +27,5 @@ test:
 
 production:
   <<: *default
+  pool: 25
   database: app-dev

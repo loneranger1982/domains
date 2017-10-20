@@ -2,7 +2,11 @@ namespace :shenobis_domains do
   desc "TODO"
   task import_json: :environment do
   
-   HardWorker.perform_async()
+   jobid=HardWorker.perform_async()
+   job=Job.new
+   job.name="Import Godaddy Domains"
+   job.jobid=jobid
+   job.save
   end
 
   task import_snapnames: :environment do

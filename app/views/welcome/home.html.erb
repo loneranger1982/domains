@@ -56,4 +56,38 @@
   </div>
   
   
+  <div class="row">
+    
+    <div class="col-md-6">
+      <div class="box">
+      <div class="box-header">
+        <h3 class="box-title">Active Jobs</h3>
+      </div>
+      <div class="box-body">
+        
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>id</th>
+              <th>Job Name</th>
+              <th>Job Status</th>
+              <th>Progress</th>
+            </tr>
+            
+            <%= @jobs.each do |process_id, thread_id, work|%>
+           
+            <tr>
+              <td><%= process_id %></td>
+              <td><%= thread_id %></td>
+              <td><%= Sidekiq::Status::status work['payload']['jid'] %></td>
+            </tr>
+            <% end %>
+          </tbody>
+          
+        </table>
+      </div>
+      </div>
+    </div>
+  </div>
+  
 </section>
