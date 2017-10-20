@@ -19,7 +19,7 @@ class DomainController < ApplicationController
 
   end
   def parsedomains
-    domains=Domain.where(:scraped,nil).count
+    domains=Domain.where(scraped:,nil).count
     i=0
     while i < domains
       ParsedomainsWorker.perform_async(100,i)
