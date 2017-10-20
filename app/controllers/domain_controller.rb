@@ -16,13 +16,14 @@ class DomainController < ApplicationController
     loaddomain(@domain)
     @filter=Filter.all
     @fil=matchfilter(true)
-   
-   
-    
-    
 
   end
-  
+  def parsedomains
+    ParsedomainsWorker.perform_async()
+    flash[:notice]="Parse Domains Added to Queue Successfully"
+    redirect_to domain_index_path
+    
+  end
   def datatable
     respond_to do |format|
       format.html
