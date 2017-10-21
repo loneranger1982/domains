@@ -7,4 +7,22 @@ require 'sidekiq/api'
     @jobs=Sidekiq::Workers.new
     @queue=Sidekiq::Queue.new
   end
+  
+  def canceljob
+    #Sidekiq::Status.cancel params[:id]
+    job=Sidekiq::Queue.new.find(params[:id])
+    #job=Sidekiq::Status.delete params[:id]
+    #job.clear
+    job.each do |j|
+      j.delete
+      redirect_to(root_path,notice: "Job " + j.klass + " " + j.args.to_s + " Deleted Successfully")
+    end
+    
+  end
+  
+  def cancelalljobs
+    job=Sidekiq::Queue.new
+    job.clear
+    redirect_to(root_path,notice: "All Jobs Deleted")
+  end
 end
