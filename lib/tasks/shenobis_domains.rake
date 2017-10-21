@@ -5,6 +5,11 @@ namespace :shenobis_domains do
    HardWorker.perform_async()
    
   end
+  
+  task delete_expired: :environment do
+    Domain.where("'auctionEndTime' < ?",Date.today).destroy_all
+    
+  end
 
   task import_snapnames: :environment do
     begin
