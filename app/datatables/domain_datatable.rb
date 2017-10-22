@@ -26,7 +26,7 @@ private
         product.valuation,
         product.traffic,
         product.isAdult,
-        product.auctionEndTime,
+        Time.at(product.auctionendtime).to_datetime,
         product.hasWebsite,
         product.source
         

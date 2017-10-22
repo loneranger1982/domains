@@ -11,28 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171020105943) do
+ActiveRecord::Schema.define(version: 20171022110011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "domains", force: :cascade do |t|
-    t.string   "domainName"
-    t.string   "link"
-    t.string   "auctionType"
-    t.datetime "auctionEndTime"
-    t.string   "price"
-    t.integer  "numberOfBids"
-    t.integer  "pageviews"
-    t.string   "valuation"
-    t.string   "monthlyParkingRevenue"
-    t.boolean  "isAdult"
-    t.integer  "domainAge"
-    t.string   "source"
-    t.integer  "traffic"
-    t.boolean  "scraped"
-    t.boolean  "hasWebsite"
-    t.boolean  "isWordpress"
+    t.string  "domainName"
+    t.string  "link"
+    t.string  "auctionType"
+    t.string  "price"
+    t.integer "numberOfBids"
+    t.integer "pageviews"
+    t.string  "valuation"
+    t.string  "monthlyParkingRevenue"
+    t.boolean "isAdult"
+    t.integer "domainAge"
+    t.string  "source"
+    t.integer "traffic"
+    t.boolean "scraped"
+    t.boolean "hasWebsite"
+    t.boolean "isWordpress"
+    t.integer "auctionendtime"
   end
 
   create_table "filters", force: :cascade do |t|

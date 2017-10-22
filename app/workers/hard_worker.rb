@@ -5,8 +5,8 @@ class HardWorker
   def perform(*args)
     require 'net/ftp'
     require 'zip'
-    total=0
-    at=0
+    i=0
+    
     ftp = Net::FTP.new
     ftp.connect("ftp.godaddy.com",21)
     ftp.login("auctions","")
@@ -21,7 +21,8 @@ class HardWorker
       end
       
     end
-    total=File.size(Dir.pwd + "/expiring_service_auctions.xml")
+    totalsize=File.size(Dir.pwd + "/expiring_service_auctions.xml")
+    total totalsize
     parser = Saxerator.parser(File.new(Dir.pwd + "/expiring_service_auctions.xml"))
     parser.for_tag(:item).each do |item|
       
@@ -42,7 +43,7 @@ class HardWorker
       domains.domainName=item['title']
       domains.link=item['link']
       domains.auctionType=hash['Auction Type']
-      domains.auctionEndTime=Time.strptime(hash['Auction End Time'],"%m/%d/%Y %I:%M %p (%Z)")
+      domains.auctionendtime=Time.strptime(hash['Auction End Time'],"%m/%d/%Y %I:%M %p (%Z)").to_i
       domains.price=hash['Price']
       domains.numberOfBids=hash['Number of Bids']
       domains.domainAge=hash['Domain Age'].to_i
@@ -52,7 +53,8 @@ class HardWorker
       domains.source="GoDaddy Auctions"
      
       domains.save
-     at=at + 100
+      i=i+100
+     at  i
     
     end
   end
