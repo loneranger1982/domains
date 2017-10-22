@@ -4,7 +4,7 @@ require 'sidekiq/api'
     @domain=Domain.count
     @filtered=Domain.where.not(hasWebsite: nil).count
     @websites=Domain.where(hasWebsite: true).count
-    @expired=Domain.where("'auctionendtime' < ?",Time.now).count
+    @expired=Domain.where("auctionendtime < ?",Time.now.to_i).count
     @jobs=Sidekiq::Workers.new
     @queue=Sidekiq::Queue.new
   end

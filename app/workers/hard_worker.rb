@@ -38,7 +38,9 @@ class HardWorker
        
        end
      
-      
+      if Time.strptime(hash['Auction End Time'],"%m/%d/%Y %I:%M %p (%Z)").to_i < Time.now.to_i
+        next
+      end
       domains=Domain.new
       domains.domainName=item['title']
       domains.link=item['link']
