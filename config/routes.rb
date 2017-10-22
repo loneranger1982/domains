@@ -10,6 +10,8 @@ get 'parsedomains' => 'domain#parsedomains'
   get 'loadDomain' => 'scraper#loadDomain'
  post 'domain/domain_index' => 'domain#index'
   post 'scrapedomain' => 'scraper#scrapedomain'
+  require 'sidekiq/web'
+   mount Sidekiq::Web => '/sidekiq'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
