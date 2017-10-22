@@ -228,6 +228,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-datatables-rails!
   jquery-rails
+  json
   nokogiri
   ox
   pg

@@ -32,7 +32,7 @@ IO.copy_stream(download, 'snapnames.zip')
       #puts file.inspect
       TSV.parse(file)do |csv|
         domains=Domain.new
-        domains.domainName=csv[0]
+        domains.domainname=csv[0]
         domains.numberOfBids=csv[1]
         domains.auctionEndTime=Time.strptime(csv[2],"%m/%d/%Y")
         domains.source="SnapNames"

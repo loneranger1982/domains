@@ -2,8 +2,8 @@ class WelcomeController < ApplicationController
 require 'sidekiq/api'
   def home
     @domain=Domain.count
-    @filtered=Domain.where.not(hasWebsite: nil).count
-    @websites=Domain.where(hasWebsite: true).count
+    @filtered=Domain.where.not(haswebsite: nil).count
+    @websites=Domain.where(haswebsite: true).count
     @expired=Domain.where("auctionendtime < ?",Time.now.to_i).count
     @jobs=Sidekiq::Workers.new
     @queue=Sidekiq::Queue.new

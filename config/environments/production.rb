@@ -79,7 +79,7 @@ Rails.application.configure do
   #config.action_mailer.default_url_options = { :host => 'localhost' }
   config.action_mailer.raise_delivery_errors = true
 config.action_mailer.delivery_method = :smtp
-config.action_mailer.default_url_options = { :host => 'salty-sierra-27165.heroku.com' }
+config.action_mailer.default_url_options = { :host => 'domains.shenobis.co.uk' }
 ActionMailer::Base.smtp_settings = {
   :address    => "smtp.sendgrid.net",
   :port       => 25,

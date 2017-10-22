@@ -20,7 +20,7 @@ private
     products.map do |product|
       [
         product.id,
-        link_to(product.domainName, product),
+        link_to(product.domainname, product),
         product.price,
         product.numberOfBids,
         product.valuation,
@@ -42,8 +42,8 @@ private
     products = Domain.order("id ASC")
     products = products.page(page).per_page(per_page)
     if params["search"]["value"].present?
-      
-      products = products.where(domainName: "like :search", search: "%#{params['search']['value']}%")
+      svalue= params['search']['value']
+      products = products.where("domainname like :search", search: "%#{params['search']['value']}%")
     end
     if params["columns"]["8"]["search"]["value"].length > 0
       search = params["columns"]["8"]["search"]["value"]

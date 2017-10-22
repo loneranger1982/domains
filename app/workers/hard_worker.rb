@@ -42,7 +42,7 @@ class HardWorker
         next
       end
       domains=Domain.new
-      domains.domainName=item['title']
+      domains.domainname=item['title']
       domains.link=item['link']
       domains.auctionType=hash['Auction Type']
       domains.auctionendtime=Time.strptime(hash['Auction End Time'],"%m/%d/%Y %I:%M %p (%Z)").to_i

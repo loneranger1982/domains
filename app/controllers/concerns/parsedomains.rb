@@ -7,7 +7,7 @@ module Parsedomains
   def loaddomain (domain)
     @@domain=domain
     begin
-        @@html = HTTParty.get("http://www." + domain.domainName,follow_redirects: true)
+        @@html = HTTParty.get("http://www." + domain.domainname,follow_redirects: true)
         #puts page
       rescue Net::OpenTimeout
         updatedomain(false)
@@ -50,7 +50,9 @@ module Parsedomains
         if @@html.length < f.regex.to_i
           updatedomain(false)
           matched="fa-check"
-          return fil[f.id]=matched
+          fil[f.id]=matched
+          fil
+          return fil
         end
         
       end
@@ -61,7 +63,9 @@ module Parsedomains
         #f.matched="fa-check"
         updatedomain(false)
         matched="fa-check"
-        return fil[f.id]=matched
+        fil[f.id]=matched
+          fil
+        return fil
       else
         #f.matched="fa-ban"
         updatedomain(true)
@@ -77,7 +81,7 @@ module Parsedomains
   end
   
   def updatedomain(result)
-    @@domain.hasWebsite=result
+    @@domain.haswebsite=result
     @@domain.scraped=true
     @@domain.save
   end
