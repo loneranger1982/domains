@@ -2,7 +2,7 @@
   
   <div class="row">
     <div class="col-xs-12">
-      <h2 class="page-header"><a href="http://www.<%= @domain.domainName %>"><%= @domain.domainName %></a></h2>
+      <h2 class="page-header"><a href="http://www.<%= @domain.domainname %>"><%= @domain.domainname %></a></h2>
     </div>
   </div>
   
@@ -12,7 +12,7 @@
       <p>Number of Bids : <%= @domain.numberOfBids %></p>
       <p>Valuation : <%= @domain.valuation %></p>
       <p>Auction Link : <a href="<%= @domain.link %>"><%= @domain.source %></a></p>
-      <%= @scraped.length %>
+      
       <div>
         <h2>Filters</h2>
       <% @filter.each do |f| %>
