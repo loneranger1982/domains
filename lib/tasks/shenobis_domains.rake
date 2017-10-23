@@ -7,7 +7,7 @@ namespace :shenobis_domains do
   end
   
   task delete_expired: :environment do
-    Domain.where("auctionendtime < ?",Time.now.to_i).destroy_all
+    Domain.where("auctionendtime < ?",Time.now.to_i).delete_all
     
   end
 
