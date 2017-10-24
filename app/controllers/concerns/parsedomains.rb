@@ -7,7 +7,8 @@ module Parsedomains
   @@f=Array.new
   
   def loaddomain (domain)
-    
+    max_retries=2
+    times_retried=0
     @@domain=domain
     begin
         @@html = HTTParty.get("http://www." + domain.domainname,follow_redirects: true)
@@ -18,6 +19,16 @@ module Parsedomains
         updatedomain(false)
       rescue HTTParty::RedirectionTooDeep
         updatedomain(false)
+      rescue Net::ReadTimeout => error
+        if times_retried < max_retries
+          times_retried += 1
+          puts "Failed to <do the thing>, retry #{times_retried}/#{max_retries}"
+          retry
+        else
+          updatedomain(false)
+          puts "Exiting script. <explanation of why this is unlikely to recover>"
+          exit(1)
+      end
     end
     
     @scraped=@@html
