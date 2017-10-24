@@ -15,7 +15,8 @@ class DomainController < ApplicationController
     @domain =Domain.find(params[:id])
     loaddomain(@domain)
     @filter=Filter.all
-    @fil=matchfilter(true)
+    
+    @fil=matchfilter(true,@filter)
 
   end
   def parsedomains
