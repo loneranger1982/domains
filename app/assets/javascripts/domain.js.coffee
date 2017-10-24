@@ -4,6 +4,7 @@ $ ->
     processing: true
     serverSide: true
     Filter:true
+    stateSave:true
     ajax: 
       url: $('#domains').data('source')
       type: 'POST'

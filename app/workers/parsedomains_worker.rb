@@ -12,11 +12,13 @@ class ParsedomainsWorker
     end
     
     total domains.count
+    filters=Filter.all
     domains.each do |d|
       i=i+1
       at i,"nearly There"
       loaddomain(d)
-      matchfilter
+      
+      matchfilter(false,filters)
       
     end
     

@@ -28,13 +28,13 @@ module Parsedomains
   end
 
   
-  def matchfilter(show=false)
+  def matchfilter(show=false,filters)
     
     if @@html.length < 10 
         updatedomain(false)
     end
     loadIntoNoko
-    filters=Filter.all
+    
     fil=Hash.new
     filters.each do |f|
       
