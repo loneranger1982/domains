@@ -11,7 +11,14 @@ module Parsedomains
     times_retried=0
     @@domain=domain
     begin
-        @@html = HTTParty.get("http://www." + domain.domainname,follow_redirects: true)
+        easy= Curl::easy.new
+        easy.follow_location=true
+        easy.max_redirects=3
+        easy.url="http://www." + domain.domainname
+        easy.useragent="Ruby"
+        res=easy.perform
+        @@html =res.body_str
+        ##@@html = HTTParty.get("http://www." + domain.domainname,follow_redirects: true)
         #puts page
       rescue Net::OpenTimeout
         updatedomain(false)
