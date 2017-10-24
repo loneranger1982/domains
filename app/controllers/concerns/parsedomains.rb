@@ -21,6 +21,8 @@ module Parsedomains
         @@html =easy.body_str
         ##@@html = HTTParty.get("http://www." + domain.domainname,follow_redirects: true)
         #puts page
+      rescue Curl::Err::RecvError
+        updatedomain(false)
       rescue Net::OpenTimeout
         updatedomain(false)
       rescue Curl::Err::TooManyRedirectsError
