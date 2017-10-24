@@ -95,8 +95,8 @@ module Parsedomains
   end
   
   def savedomains
-    Domain.update_all(:haswebsite => true).where(:id =>@@t)
-    Domain.update_all(:haswebsite => false).where(:id =>@@f)
+    Domain.where(:id =>@@t).update_all(:haswebsite => true)
+    Domain.where(:id =>@@f).update_all(:haswebsite => false)
   end
   
   
