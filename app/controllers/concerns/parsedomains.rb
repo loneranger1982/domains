@@ -18,7 +18,7 @@ module Parsedomains
         easy.url="http://www." + domain.domainname
         easy.useragent="Ruby"
         res=easy.perform
-        @@html =res.body_str
+        @@html =easy.body_str
         ##@@html = HTTParty.get("http://www." + domain.domainname,follow_redirects: true)
         #puts page
       rescue Net::OpenTimeout
