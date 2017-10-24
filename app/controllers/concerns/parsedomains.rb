@@ -9,9 +9,10 @@ module Parsedomains
   def loaddomain (domain)
     max_retries=2
     times_retried=0
+    require 'curb'
     @@domain=domain
     begin
-        easy= Curl::easy.new
+        easy= Curl::Easy.new
         easy.follow_location=true
         easy.max_redirects=3
         easy.url="http://www." + domain.domainname
