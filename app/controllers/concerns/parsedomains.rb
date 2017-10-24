@@ -23,9 +23,9 @@ module Parsedomains
         #puts page
       rescue Net::OpenTimeout
         updatedomain(false)
-      rescue SocketError
+      rescue Curl::Err::TooManyRedirectsError
         updatedomain(false)
-      rescue HTTParty::RedirectionTooDeep
+      rescue Curl::Err::HostResolutionError
         updatedomain(false)
       rescue Net::ReadTimeout => error
         if times_retried < max_retries
