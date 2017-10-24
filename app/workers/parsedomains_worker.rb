@@ -21,6 +21,6 @@ class ParsedomainsWorker
       matchfilter(false,filters)
       
     end
-    
+    savedomains
   end
 end
