@@ -3,8 +3,11 @@ module Parsedomains
   @@pp=""
   
   @@domain=""
+  @@t=Array.new
+  @@f=Array.new
   
   def loaddomain (domain)
+    
     @@domain=domain
     begin
         @@html = HTTParty.get("http://www." + domain.domainname,follow_redirects: true)
@@ -76,14 +79,24 @@ module Parsedomains
         fil[f.id]=matched
       end
     end
-    
+    savedomains
     fil
   end
   
   def updatedomain(result)
-    @@domain.haswebsite=result
-    @@domain.scraped=true
-    @@domain.save
+    if result==true
+      @@t<<@@domain.id
+    else
+      @@f<<@@domain.id
+    end
+   # @@domain.haswebsite=result
+    #@@domain.scraped=true
+    #@@domain.save
+  end
+  
+  def savedomains
+    Domain.update_all(:haswebsite => true).where(:id =>@@t)
+    Domain.update_all(:haswebsite => false).where(:id =>@@f)
   end
   
   
