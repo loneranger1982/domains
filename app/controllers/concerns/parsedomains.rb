@@ -10,9 +10,7 @@ module Parsedomains
     max_retries=2
     times_retried=0
     require 'curb'
-    require 'benchmark'
-    Benchmark.bm do |bm|
-      bm.report do
+
     @@domain=domain
     
     begin
@@ -46,8 +44,7 @@ module Parsedomains
     end
     
     @scraped=@@html
-  end
-end
+
   end
   
   def loadIntoNoko 
