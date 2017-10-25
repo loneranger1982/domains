@@ -32,6 +32,8 @@ module Parsedomains
         updatedomain(false)
       rescue Curl::Err::HostResolutionError
         updatedomain(false)
+      rescue Curl::Err::TimeoutError
+        updatedomain(false)
       rescue Net::ReadTimeout => error
         if times_retried < max_retries
           times_retried += 1
