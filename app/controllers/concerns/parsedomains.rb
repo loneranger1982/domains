@@ -12,6 +12,7 @@ module Parsedomains
     require 'curb'
     require 'benchmark'
     Benchmark.bm do |bm|
+      bm.report do
     @@domain=domain
     
     begin
@@ -43,9 +44,10 @@ module Parsedomains
           exit(1)
       end
     end
-    bm.reportdo
+    
     @scraped=@@html
   end
+end
   end
   
   def loadIntoNoko 
