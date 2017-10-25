@@ -19,6 +19,7 @@ module Parsedomains
         easy.max_redirects=3
         easy.url="http://www." + domain.domainname
         easy.useragent="Ruby"
+        easy.timeout=10
         res=easy.perform
         @@html =easy.body_str
         ##@@html = HTTParty.get("http://www." + domain.domainname,follow_redirects: true)
