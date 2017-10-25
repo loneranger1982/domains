@@ -11,7 +11,7 @@ module Parsedomains
     times_retried=0
     require 'curb'
     require 'benchmark'
-    Benchmark.bmdo |bm|
+    Benchmark.bm do |bm|
     @@domain=domain
     
     begin
