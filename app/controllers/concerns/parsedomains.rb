@@ -10,7 +10,10 @@ module Parsedomains
     max_retries=2
     times_retried=0
     require 'curb'
+    require 'benchmark'
+    Benchmark.bmdo |bm|
     @@domain=domain
+    
     begin
         easy= Curl::Easy.new
         easy.follow_location=true
@@ -40,8 +43,9 @@ module Parsedomains
           exit(1)
       end
     end
-    
+    bm.reportdo
     @scraped=@@html
+  end
   end
   
   def loadIntoNoko 

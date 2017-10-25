@@ -55,7 +55,7 @@ class HardWorker
       domains.source="GoDaddy Auctions"
      
       domains.save
-      i=i+100
+      i=i+440
      at  i
     
     end

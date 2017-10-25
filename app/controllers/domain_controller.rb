@@ -17,6 +17,8 @@ class DomainController < ApplicationController
     @filter=Filter.all
     
     @fil=matchfilter(true,@filter)
+    savedomains
+    
 
   end
   def parsedomains
