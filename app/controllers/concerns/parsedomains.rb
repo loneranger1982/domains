@@ -26,14 +26,19 @@ module Parsedomains
         #puts page
       rescue Curl::Err::RecvError
         updatedomain(false)
+        exit(1)
       rescue Net::OpenTimeout
         updatedomain(false)
+        exit(1)
       rescue Curl::Err::TooManyRedirectsError
         updatedomain(false)
+        exit(1)
       rescue Curl::Err::HostResolutionError
         updatedomain(false)
+        exit(1)
       rescue Curl::Err::TimeoutError
         updatedomain(false)
+        exit(1)
       rescue Net::ReadTimeout => error
         if times_retried < max_retries
           times_retried += 1
