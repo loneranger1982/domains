@@ -26,19 +26,19 @@ module Parsedomains
         #puts page
       rescue Curl::Err::RecvError
         updatedomain(false)
-        exit(1)
+        return
       rescue Net::OpenTimeout
         updatedomain(false)
-        exit(1)
+        return
       rescue Curl::Err::TooManyRedirectsError
         updatedomain(false)
-        exit(1)
+        return
       rescue Curl::Err::HostResolutionError
         updatedomain(false)
-        exit(1)
+        return
       rescue Curl::Err::TimeoutError
         updatedomain(false)
-        exit(1)
+        return
       rescue Net::ReadTimeout => error
         if times_retried < max_retries
           times_retried += 1
@@ -47,7 +47,7 @@ module Parsedomains
         else
           updatedomain(false)
           puts "Exiting script. <explanation of why this is unlikely to recover>"
-          exit(1)
+          return
       end
     end
     
