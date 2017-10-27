@@ -62,7 +62,7 @@ module Parsedomains
   
   def matchfilter(show=false,filters)
     
-    if @@html.length < 10 
+    if @@html.length < 30 
         updatedomain(false)
     end
     loadIntoNoko
