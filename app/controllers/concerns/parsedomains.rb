@@ -121,6 +121,7 @@ module Parsedomains
     else
       @@f<<@@domain.id
     end
+    
    # @@domain.haswebsite=result
     #@@domain.scraped=true
     #@@domain.save

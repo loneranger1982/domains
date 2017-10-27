@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.4'
+ruby '2.4.2'
 
 gem 'curb'
 gem 'sidekiq-status'
@@ -11,12 +11,11 @@ gem 'tsv'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'ajax-datatables-rails'
 gem 'active_link_to'
-gem 'httparty'
+
 gem 'will_paginate'
 gem 'saxerator'
 gem 'nokogiri'
-gem 'ox'
-gem 'json'
+
 gem 'adminlte2-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'

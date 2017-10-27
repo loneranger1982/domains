@@ -10,7 +10,7 @@ class ParsedomainsWorker
     if haswebsite
       domains=Domain.limit(limit).offset(offset).where(haswebsite: true)
     else
-      domains=Domain.limit(limit).offset(offset).where(scraped: nil)
+      domains=Domain.limit(limit).offset(offset).where(haswebsite: nil)
     end
     
     
