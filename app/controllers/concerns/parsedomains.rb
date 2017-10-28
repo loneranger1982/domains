@@ -1,4 +1,5 @@
 module Parsedomains
+  require 'curb'
   @@html=""
   @@pp=""
   
@@ -9,7 +10,7 @@ module Parsedomains
   def loaddomain (domain)
     max_retries=2
     times_retried=0
-    require 'curb'
+    
 
     @@domain=domain
     
@@ -128,8 +129,11 @@ module Parsedomains
   end
   
   def savedomains
-    Domain.where(:id =>@@t).update_all(:haswebsite => true)
-    Domain.where(:id =>@@f).update_all(:haswebsite => false)
+    ActiveRecord::Base.connection_pool.with_connection do |c|
+      
+      Domain.where(:id =>@@t).update_all(:haswebsite => true)
+      Domain.where(:id =>@@f).update_all(:haswebsite => false)
+    end
   end
   
   
