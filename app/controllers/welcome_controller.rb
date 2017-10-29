@@ -17,7 +17,7 @@ require 'sidekiq/api'
     #job.each do |j|
      # j.delete
      # redirect_to(root_path,notice: "Job " + j.klass + " " + j.args.to_s + " Deleted Successfully")
-    end
+    #end
     
   end
   
