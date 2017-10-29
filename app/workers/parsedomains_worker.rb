@@ -2,7 +2,6 @@ class ParsedomainsWorker
 
   include Parsedomains
 
-  sidekiq_options :retry => false
   
   def perform(limit=100,offset=0,haswebsite = false)
    
