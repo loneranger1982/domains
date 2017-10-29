@@ -2,8 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.4'
 
 gem 'curb'
-gem 'sidekiq-status'
-gem 'sidekiq'
+gem 'resque', :require => "resque/server"
 gem 'redis'
 gem 'rubyzip'
 gem 'devise'
@@ -65,6 +64,7 @@ group :development do
 end
 
 group :production do
+  
   gem 'mysql2'
 gem 'puma'
   gem 'rails_12factor'
