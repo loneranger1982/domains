@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.4'
 
 gem 'curb'
-gem 'resque'
+gem 'delayed_job_active_record'
 gem 'redis'
 gem 'rubyzip'
 gem 'devise'
