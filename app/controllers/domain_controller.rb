@@ -22,10 +22,11 @@ class DomainController < ApplicationController
 
   end
   def parsedomains
-    domains=Domain.where(scraped: nil).count
+    domains=Domain.where(scraped: nil,haswebsite: nil).count
     i=0
     while i < domains
-      ParsedomainsWorker.perform_async(100,i)
+      Resque.enqueue(parsedomains_worker,100,i)
+      #ParsedomainsWorker.perform_async(100,i)
       i=i+100
     end
     

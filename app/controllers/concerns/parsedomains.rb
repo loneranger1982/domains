@@ -131,8 +131,8 @@ module Parsedomains
   def savedomains
     ActiveRecord::Base.connection_pool.with_connection do |c|
       
-      Domain.where(:id =>@@t).update_all(:haswebsite => true)
-      Domain.where(:id =>@@f).update_all(:haswebsite => false)
+      Domain.where(:id =>@@t).update_all(:haswebsite => 1)
+      Domain.where(:id =>@@f).update_all(:haswebsite => 0)
     end
   end
   
