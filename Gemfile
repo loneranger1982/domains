@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.4'
 
 gem 'curb'
-gem 'resque', :require => "resque/server"
+gem 'resque'
 gem 'redis'
 gem 'rubyzip'
 gem 'devise'
