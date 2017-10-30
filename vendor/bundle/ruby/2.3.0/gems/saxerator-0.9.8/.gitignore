@@ -1,0 +1,12 @@
+*.gem
+.bundle
+Gemfile.lock
+pkg/*
+.DS_Store
+.idea/
+coverage/
+.rvmrc
+.ruby-version
+.ruby-gemset
+
+/spec/examples.txt

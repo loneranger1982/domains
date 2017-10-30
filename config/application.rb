@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Domains
   class Application < Rails::Application
-    
+    config.active_job.queue_adapter = :delayed_job
       config.to_prepare do
         Devise::SessionsController.layout 'admin_lte_2_login'
       end

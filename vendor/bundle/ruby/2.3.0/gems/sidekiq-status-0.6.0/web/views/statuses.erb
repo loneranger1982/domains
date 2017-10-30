@@ -1,0 +1,68 @@
+
+<style>
+.progress {
+  background-color: #C8E1ED;
+}
+.bar {
+  background-color: #2897cb; 
+  color: white; 
+  text-shadow: 0 0 0;
+}
+.message {
+  text-shadow: 0 0 5px white;
+  font-weight: bold; padding-left: 4px;
+  color: #333;
+}
+.header{
+  text-align: center;
+}
+</style>
+
+<h3 class="wi">Recent job statuses</h3>
+<table class="table table-hover table-bordered table-striped table-white">  
+  <tr>
+    <th class="header">Worker/jid</th>
+    <th class="header">Arguments</th>
+    <th class="header">Status</th>
+    <th class="header" style="width: 10%;">Last Updated</th>
+    <th class="header" style="width: 45%;">Progress</th>
+  </tr>
+  <% @statuses.each do |container| %>
+    <tr>
+      <td>
+        <div title='<%= container.jid %>'><%= container.worker %></div>
+      </td>
+      <td>
+        <div class='args' title='<%= container.jid %>'><%= container.args %></div>
+      </td>
+      <td style='text-align: center;'>
+        <div class='label label-<%= container.label %>'><%= container.status %></div>
+      </td>
+      <% secs = Time.now.to_i - container.update_time.to_i %>
+      <td style='text-align: center;'>
+        <% if secs > 0 %>
+          <%= secs %> sec<%= secs == 1 ? '' : 's' %> ago
+        <% else %>
+          Now
+        <% end %>
+      </td>
+      <td>
+        <div class="progress progress-striped" style="margin-bottom: 0">
+          <div class='message' style='text-align:right; padding-right:0.5em; background-color: transparent; float:right;'>
+            <%= container.message %>
+          </div>
+          <% if container.pct_complete.to_i > 0 %>
+            <div class="bar message" style="width: <%= container.pct_complete %>%;">
+              <%= container.pct_complete %>%
+            </div>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+  <% if @statuses.empty? %>
+    <tr>
+      <td colspan="6"></td>
+    </tr>
+  <% end %>
+</table>
