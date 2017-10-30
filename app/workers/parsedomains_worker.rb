@@ -13,7 +13,7 @@ class ParsedomainsWorker
       domains=Domain.limit(limit).offset(offset).where(haswebsite: true,scraped: nil)
       domains.update_all({scraped: true})
     else
-      domains=Domain.limit(limit).offset(offset).where(haswebsite: nil,scraped: nil).order("id ASC")
+      domains=Domain.limit(limit).offset(offset).where(haswebsite: nil).order("id ASC")
       domains.update_all({scraped: true})
     end
     

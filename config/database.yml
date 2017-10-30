@@ -5,9 +5,8 @@
 #   gem 'sqlite3'
 #
 default: &default
-      adapter: postgresql
-      encoding: sql_ascii
-      pool: 5
+      adapter: mysql2
+      pool: 100
       username: user
        
       
@@ -27,5 +26,7 @@ test:
 
 production:
   <<: *default
-  pool: 25
-  database: app-dev
+  pool: 250
+  database: domains
+  username: root
+  password: BrookePorter1281

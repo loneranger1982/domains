@@ -25,8 +25,8 @@ class DomainController < ApplicationController
     domains=Domain.where(scraped: nil).count
     i=0
     while i < domains
-      ParsedomainsWorker.perform_async(100,i)
-      i=i+100
+      ParsedomainsWorker.perform_async(1000,i)
+      i=i+1000
     end
     
     flash[:notice]="Parse Domains Added to Queue Successfully"
