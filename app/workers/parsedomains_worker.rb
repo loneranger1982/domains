@@ -1,16 +1,17 @@
 class ParsedomainsWorker
-
+  include Sidekiq::Worker
+  include Sidekiq::Status::Worker
   include Parsedomains
 
   
-  def perform(limit=100,offset=0)
+  def perform(limit=100,offset=0,haswebsite=false)
    
 
     i=0
     if haswebsite
       domains=Domain.limit(limit).offset(offset).where(haswebsite: true)
     else
-      domains=Domain.limit(limit).offset(offset).where(haswebsite: true).order("id ASC")
+      domains=Domain.limit(limit).offset(offset).where(haswebsite: nil).order("id ASC")
       domains.update_all({scraped: true})
     end
     
