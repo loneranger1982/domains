@@ -180,6 +180,8 @@ GEM
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.4, < 5)
+    sidekiq-status (0.6.0)
+      sidekiq (>= 2.7)
     spring (2.0.2)
       activesupport (>= 4.2)
     sprockets (3.7.1)
@@ -236,6 +238,7 @@ DEPENDENCIES
   saxerator
   sdoc (~> 0.4.0)
   sidekiq
+  sidekiq-status
   spring
   sqlite3
   tsv
