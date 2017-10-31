@@ -26,7 +26,7 @@ class DomainController < ApplicationController
       domains=Domain.where(haswebsite: "true").count
       
     else
-      domains=Domain.where(haswebsite: true).count
+      domains=Domain.where(scraped: nil,haswebsite: nil).count
     end
     
     i=0
