@@ -40,6 +40,13 @@ module Parsedomains
       rescue Curl::Err::TimeoutError
         updatedomain(false)
         return
+      rescue Curl::Err::SSLPeerCertificateError
+        updatedomain(false)
+        return
+      rescue Curl::Err::ConnectionFailedError
+        updatedomain(false)
+        return
+        
       rescue Net::ReadTimeout => error
         if times_retried < max_retries
           times_retried += 1
