@@ -10,13 +10,8 @@ class ParsedomainsWorker
     if haswebsite
       domains=Domain.limit(limit).offset(offset).where(haswebsite: true)
     else
-<<<<<<< HEAD
-      domains=Domain.limit(limit).offset(offset).where(haswebsite: nil,scraped: nil).order("id ASC")
-      
-=======
       domains=Domain.limit(limit).offset(offset).where(haswebsite: nil).order("id ASC")
       domains.update_all({scraped: true})
->>>>>>> 9975086b81c3ebb32b478feaa642b705833fac1a
     end
     
     

@@ -74,7 +74,90 @@
   </div>
   
   
- 
+  <div class="row">
+    
+    <div class="col-md-12">
+      <div class="box">
+      <div class="box-header">
+        <h3 class="box-title">Active Jobs</h3>
+      </div>
+      <div class="box-body">
+        
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>id</th>
+              <th>Job Name</th>
+              <th>Job Status</th>
+              <th>Progress</th>
+              <th>Completed</th>
+            </tr>
+            
+            <% @jobs.each do |process_id, thread_id, work|%>
+            <% jid= work['payload']['jid'] %>
+            <% at=Sidekiq::Status::at jid %>
+            <% total=Sidekiq::Status::total jid %>
+            <% data= Sidekiq::Status::get_all jid %>
+            <% percent= at.to_f / total.to_f * 100 %>
+            <%percent= percent.round(2) %>
+            <tr>
+              <td><%= process_id %></td>
+              <td><%= data["worker"] %></td>
+              <td><%= Sidekiq::Status::status jid %></td>
+              <td>
+                <div class="progress progress-xs">
+                  <div class="progress-bar progress-bar-danager" style="width: <%= percent %>%;"/>
+                </div>
+                
+                </td>
+                <td><%= at.to_s + " / " + total.to_s %></td>
+            </tr>
+            <% end %>
+          </tbody>
+          
+        </table>
+      </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="row">
+    
+    <div class="col-md-12">
+      <div class="box">
+      <div class="box-header">
+        <h3 class="box-title">Queued Jobs</h3>
+        <div class="box-tools">
+          <%= link_to("Delete All Jobs",deletealljobs_path,:confirm =>"Are you Sure you want to cancel all the queued jobs")%> 
+        </div>
+      </div>
+      <div class="box-body">
+        
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>id</th>
+              <th>Job Name</th>
+              <th>Arguments</th>
+              <th>Created at</th>
+              <th>Delete Job</th>
+            </tr>
+            
+            <% @queue.each do |q|%>
+            
+            <tr>
+              <td><%= q.jid %></td>
+              <td><%= q.klass %></td>
+              <td><%= q.args %></td>
+              <td><%= q.created_at %></td>
+              <td><%= link_to("Delete Job",deletejob_path(:id => q.jid))%> </td>
+            </tr>
+            <% end %>
+          </tbody>
+          
+        </table>
+      </div>
       </div>
     </div>
   </div>
