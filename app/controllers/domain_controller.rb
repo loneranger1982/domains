@@ -38,7 +38,7 @@ class DomainController < ApplicationController
     domains=Domain.where(haswebsite: 1).count
     i=0
     while i < domains
-      ParsedomainsWorker.perform_async(1000,i,true)
+      ParsedomainsWorker.perform_async(1000,i)
       i=i+1000
     end
     

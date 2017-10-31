@@ -3,7 +3,7 @@ class ParsedomainsWorker
   include Parsedomains
 
   
-  def perform(limit=100,offset=0,haswebsite = false)
+  def perform(limit=100,offset=0,haswebsite=true)
    
 
     i=0
