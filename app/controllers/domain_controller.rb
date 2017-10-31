@@ -35,10 +35,10 @@ class DomainController < ApplicationController
   end
   
   def parsewebsitedomains
-    domains=Domain.where(haswebsite: true).count
+    domains=Domain.where(haswebsite: 1).count
     i=0
     while i < domains
-      ParsedomainsWorker.perform(1000,i,true)
+      ParsedomainsWorker.perform_async(1000,i,true)
       i=i+1000
     end
     
