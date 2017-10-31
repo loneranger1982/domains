@@ -23,7 +23,7 @@ class DomainController < ApplicationController
   end
   def parsedomains
     if(params['websites'])
-      domains=Domain.where(scraped: true,haswebsite: true).count
+      domains=Domain.where(haswebsite: "true").count
       
     else
       domains=Domain.where(scraped: nil,haswebsite: nil).count
