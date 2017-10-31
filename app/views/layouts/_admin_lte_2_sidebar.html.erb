@@ -40,7 +40,7 @@
       <li class="header">Scraper</li>
       <li class="<%= active_link_to_class(loadDomain_path, active: :inclusive)%>"><%= link_to(loadDomain_path) do  %><i class='fa fa-file-code-o'></i> <span>Scrape Domain</span><% end %></li>
       <li class="<%= active_link_to_class(parsedomains_path, active: :inclusive)%>"><%= link_to(parsedomains_path) do  %><i class='fa fa-exchange'></i> <span>Parse All Domain</span><% end %></li>
-     <li class="<%= active_link_to_class(parsedomains_path, active: :inclusive)%>"><%= link_to(parsedomains_path) do  %><i class='fa fa-exchange'></i> <span>Parse All Domain</span><% end %></li>
+     <li class="<%= active_link_to_class(parsedomains_path, active: :inclusive)%>"><%= link_to(parsedomains_path,{:websites => true}) do  %><i class='fa fa-exchange'></i> <span>Parse All Domain</span><% end %></li>
      
       <li class="header">Account</li>
       <li class="<%= active_link_to_class(destroy_user_session_path, active: :inclusive)%>"><%= link_to(destroy_user_session_path,method: :delete) do  %><i class='fa fa-sign-out'></i> <span>Sign Out</span><% end %></li>
@@ -48,7 +48,7 @@
       <li class="header">Admin</li>
       
       <li class="<%= active_link_to_class(users_path, active: :exclusive)%>"><%= link_to(users_path) do  %><i class='fa fa-users'></i> <span>List User</span><% end %></li>
-      <li class="<%= active_link_to_class(new_user_path, active: :exclusive)%>"><%= link_to(new_user_path, :websites true) do  %><i class='fa fa-user-plus'></i> <span>Create User</span><% end %></li>
+      <li class="<%= active_link_to_class(new_user_path, active: :exclusive)%>"><%= link_to(new_user_path) do  %><i class='fa fa-user-plus'></i> <span>Create User</span><% end %></li>
       <% end %>
     </ul><!-- /.sidebar-menu -->
   </section>
