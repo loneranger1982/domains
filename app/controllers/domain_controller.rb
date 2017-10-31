@@ -22,7 +22,13 @@ class DomainController < ApplicationController
 
   end
   def parsedomains
-    domains=Domain.where(scraped: nil,haswebsite: nil).count
+    if(params['websites'])
+      domains=Domain.where(haswebsite: 1).count
+      
+    else
+      domains=Domain.where(scraped: nil,haswebsite: nil).count
+    end
+    
     i=0
     while i < domains
       ParsedomainsWorker.perform_async(1000,i)
@@ -34,18 +40,7 @@ class DomainController < ApplicationController
     
   end
   
-  def parsewebsitedomains
-    domains=Domain.where(haswebsite: 1).count
-    i=0
-    while i < domains
-      ParsedomainsWorker.perform_async(1000,i)
-      i=i+1000
-    end
-    
-    flash[:notice]="Parse Domains Added to Queue Successfully"
-    redirect_to root_path
-    
-  end
+  
   
   def datatable
     respond_to do |format|
