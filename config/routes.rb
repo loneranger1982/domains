@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'deletealljob' => "welcome#cancelalljobs", as: :deletealljobs
   get 'deletejob/:id' => "welcome#canceljob", as: :deletejob
 get 'parsedomains' => 'domain#parsedomains'
+get 'parsewebsitedomains' => 'domain#parsewebsitedomains'
   get 'loadDomain' => 'scraper#loadDomain'
  post 'domain/domain_index' => 'domain#index'
   post 'scrapedomain' => 'scraper#scrapedomain'
