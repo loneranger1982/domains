@@ -30,7 +30,7 @@ class DomainController < ApplicationController
     end
     
     i=0
-    puts "Domains=" + domains
+    puts "Domains=#{domains}"  
     while i < domains
       ParsedomainsWorker.perform_async(1000,i)
       i=i+1000
