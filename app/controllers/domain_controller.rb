@@ -24,15 +24,16 @@ class DomainController < ApplicationController
   def parsedomains
     if(params['websites'])
       domains=Domain.where(haswebsite: "true").count
-      
+      haswebsite=true
     else
       domains=Domain.where(scraped: nil,haswebsite: nil).count
+      haswebsite=false
     end
     
     i=0
     puts "Domains=#{domains}"  
     while i < domains
-      ParsedomainsWorker.perform_async(1000,i)
+      ParsedomainsWorker.perform_async(1000,i,haswebsite)
       i=i+1000
     end
     
