@@ -34,7 +34,7 @@ IO.copy_stream(download, 'snapnames.zip')
         domains=Domain.new
         domains.domainname=csv[0]
         domains.numberOfBids=csv[1]
-        domains.auctionEndTime=Time.strptime(csv[2],"%m/%d/%Y")
+        domains.auctionendtime=Time.strptime(csv[2],"%m/%d/%Y")
         domains.source="SnapNames"
         domains.save
       end
@@ -45,8 +45,8 @@ IO.copy_stream(download, 'snapnames.zip')
      domains=Domain.where(scraped: nil).count
     i=0
     while i < domains
-      ParsedomainsWorker.perform_async(100,i)
-      i=i+100
+      ParsedomainsWorker.perform_async(1000,i)
+      i=i+1000
     end
     
   end
