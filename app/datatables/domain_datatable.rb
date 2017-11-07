@@ -19,7 +19,7 @@ private
   def data
     products.map do |product|
       [
-        link_to(product.id,product)
+        link_to(product.id,product),
         link_to(product.domainname, "http://www." + product.domainname, :target => "_blank"),
         product.price,
         product.numberOfBids,
