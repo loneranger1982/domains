@@ -49,6 +49,10 @@ private
       search = params["columns"]["8"]["search"]["value"]
       products = products.where(haswebsite: search)
     end
+    if params["columns"]["8"]["search"]["value"].length > 0
+      search = params["columns"]["8"]["search"]["value"]
+      products = products.where("domainname like :search",search: "%" + svalue)
+    end
     if params["columns"]["9"]["search"]["value"].length > 0
       search = params["columns"]["9"]["search"]["value"]
       products = products.where(source: search)

@@ -20,3 +20,9 @@ $ ->
       
       oTable.columns([9]).search($(this).val()).draw()
       return
+
+    $('#domainending').change ->
+     
+      
+      oTable.columns([1]).search($(this).val()).draw()
+      return
