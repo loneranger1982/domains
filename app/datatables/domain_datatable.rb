@@ -75,7 +75,7 @@ private
           s=Time.now + 5.days
           e=Time.now + 6.days
         end
-      products = products.where("auctionendtime > s and auctionendtime < e")
+      products = products.where("auctionendtime > :start and auctionendtime < :endtime",start: s, endtime: e)
     end
     if params["columns"]["9"]["search"]["value"].length > 0
       search = params["columns"]["9"]["search"]["value"]
