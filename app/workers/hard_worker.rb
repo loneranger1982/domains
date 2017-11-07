@@ -41,6 +41,7 @@ class HardWorker
       if Time.strptime(hash['Auction End Time'],"%m/%d/%Y %I:%M %p (%Z)").to_i < Time.now.to_i
         next
       end
+      begin
       domains=Domain.new
       domains.domainname=item['title']
       domains.link=item['link']
@@ -56,7 +57,11 @@ class HardWorker
      
       domains.save
       i=i+440
-     at  i
+      at  i
+      rescue ActiveRecord::RecordNotUnique => e
+      
+      end
+      
     
     end
   end
