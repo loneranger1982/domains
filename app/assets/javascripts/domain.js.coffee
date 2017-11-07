@@ -26,3 +26,9 @@ $ ->
       
       oTable.columns([1]).search($(this).val()).draw()
       return
+      
+    $('#endtime').change ->
+     
+      
+      oTable.columns([7]).search($(this).val()).draw()
+      return

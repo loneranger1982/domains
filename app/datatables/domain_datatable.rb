@@ -53,6 +53,30 @@ private
       search = params["columns"]["1"]["search"]["value"]
       products = products.where("domainname like :search",search: "%" + search)
     end
+    if params["columns"]["7"]["search"]["value"].length > 0
+      search = params["columns"]["7"]["search"]["value"]
+      case search
+        when "today"
+          s=Time.now
+          e=Time.now + 1.days
+        when "tomorrow"
+          s=Time.now + 1.days
+          e=Time.now + 2.days
+        when "2days"
+          s=Time.now + 2.days
+          e=Time.now + 3.days
+        when "3days"
+          s=Time.now + 3.days
+          e=Time.now + 4.days
+        when "4days"
+          s=Time.now + 4.days
+          e=Time.now + 5.days
+        when "5days"
+          s=Time.now + 5.days
+          e=Time.now + 6.days
+        end
+      products = products.where("auctionendtime > s and auctionendtime < e")
+    end
     if params["columns"]["9"]["search"]["value"].length > 0
       search = params["columns"]["9"]["search"]["value"]
       products = products.where(source: search)
