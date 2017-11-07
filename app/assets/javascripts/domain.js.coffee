@@ -21,6 +21,6 @@ $ ->
       oTable.columns([9]).search($(this).val()).draw()
       return
     
-   
+   $('input[name="daterange"]').daterangepicker();
      
   
