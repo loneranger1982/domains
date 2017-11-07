@@ -15,5 +15,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require dataTables/jquery.dataTables
+//= require daterangepicker
 //= require app
 //= require_tree .

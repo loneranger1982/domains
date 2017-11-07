@@ -13,6 +13,7 @@ default: &default
 
 development:
   <<: *default
+  adapter: postgresql
   username: ubuntu
   password: porter
   database: db/development
