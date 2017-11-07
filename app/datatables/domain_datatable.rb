@@ -51,7 +51,7 @@ private
     end
     if params["columns"]["1"]["search"]["value"].length > 0
       search = params["columns"]["1"]["search"]["value"]
-      products = products.where("domainname like :search",search: "%" + svalue)
+      products = products.where("domainname like :search",search: "%" + search)
     end
     if params["columns"]["9"]["search"]["value"].length > 0
       search = params["columns"]["9"]["search"]["value"]
