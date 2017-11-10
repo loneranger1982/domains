@@ -146,8 +146,8 @@ module Parsedomains
   def savedomainwithFilter(filtername,result,id)
     ActiveRecord::Base.connection_pool.with_connection do |c|
       
-      Domain.where(:id => id).update_all(:haswebsite => 0,:filter => filtername)
-      
+      #Domain.where(:id => id).update_all(:haswebsite => 0,:filter => filtername)
+      @@domain.update(:haswebsite => 0,:filter => filtername)
     end
     
   end
