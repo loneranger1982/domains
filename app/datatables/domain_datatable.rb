@@ -28,7 +28,9 @@ private
         product.isAdult,
         Time.at(product.auctionendtime).to_datetime,
         product.haswebsite,
-        product.source
+        
+        product.source,
+        product.filter
         
       ]
     end
