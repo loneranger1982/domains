@@ -20,31 +20,31 @@ module Parsedomains
         easy.max_redirects=3
         easy.url="http://www." + domain.domainname
         easy.useragent="Ruby"
-        easy.timeout=10
+        easy.timeout=30
         res=easy.perform
         @@html =easy.body_str
         ##@@html = HTTParty.get("http://www." + domain.domainname,follow_redirects: true)
         #puts page
       rescue Curl::Err::RecvError
-        updatedomain(false)
+        savedomainwithFilter("recieve Error",0,@@domain.id)
         return
       rescue Net::OpenTimeout
         updatedomain(false)
         return
       rescue Curl::Err::TooManyRedirectsError
-        updatedomain(false)
+        savedomainwithFilter("Too Many Redirects",0,@@domain.id)
         return
       rescue Curl::Err::HostResolutionError
-        updatedomain(false)
+        savedomainwithFilter("Host Resolve Error",0,@@domain.id)
         return
       rescue Curl::Err::TimeoutError
-        updatedomain(false)
+        savedomainwithFilter("Timeout Error",0,@@domain.id)
         return
       rescue Curl::Err::SSLPeerCertificateError
-        updatedomain(false)
+        savedomainwithFilter("SSL Peer Error",0,@@domain.id)
         return
       rescue Curl::Err::ConnectionFailedError
-        updatedomain(false)
+        savedomainwithFilter("Connection Error",0,@@domain.id)
         return
         
       rescue Net::ReadTimeout => error
@@ -53,7 +53,7 @@ module Parsedomains
           puts "Failed to <do the thing>, retry #{times_retried}/#{max_retries}"
           retry
         else
-          updatedomain(false)
+          savedomainwithFilter("Read Timeout Error",0,@@domain.id)
           puts "Exiting script. <explanation of why this is unlikely to recover>"
           return
       end
@@ -91,7 +91,7 @@ module Parsedomains
       
       when "htmllength"
         if @@html.length < f.regex.to_i
-          updatedomain(false)
+          savedomainwithFilter(f.name,0,@@domain.id)
           matched="fa-check"
           fil[f.id]=matched
           fil
@@ -104,7 +104,7 @@ module Parsedomains
       if findHTML =~ Regexp.new(f.regex)
         
         #f.matched="fa-check"
-        updatedomain(false)
+        savedomainwithFilter(f.name,0,@@domain.id)
         matched="fa-check"
         fil[f.id]=matched
           fil
@@ -139,8 +139,17 @@ module Parsedomains
     ActiveRecord::Base.connection_pool.with_connection do |c|
       
       Domain.where(:id =>@@t).update_all(:haswebsite => 1)
-      Domain.where(:id =>@@f).update_all(:haswebsite => 0)
+      #Domain.where(:id =>@@f).update_all(:haswebsite => 0)
     end
+  end
+  
+  def savedomainwithFilter(filtername,result,id)
+    ActiveRecord::Base.connection_pool.with_connection do |c|
+      
+      Domain.where(:id => id).update_all(:haswebsite => 0,:filter => filtername)
+      
+    end
+    
   end
   
   
