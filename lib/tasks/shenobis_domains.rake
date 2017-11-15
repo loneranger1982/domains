@@ -56,8 +56,8 @@ IO.copy_stream(download, 'snapnames.zip')
      domains=Domain.where(haswebsite: true).count
     i=0
     while i < domains
-      ParsedomainsWorker.perform_async(5000,i,true)
-      i=i+5000
+      ParsedomainsWorker.perform_async(domains.id)
+      i=i+1
     end
   end
 end
