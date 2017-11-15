@@ -6,7 +6,7 @@ class ParsedomainsWorker
   
   def perform(id)
       domains=Domain.find(id)
-      if domains.size <= 0
+      if domains.length <= 0
         return
       else
         scrape_domains(domains)
