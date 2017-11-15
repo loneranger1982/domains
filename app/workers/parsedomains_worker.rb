@@ -1,27 +1,12 @@
 class ParsedomainsWorker
   include Sidekiq::Worker
-  include Sidekiq::Status::Worker
+
   include Parsedomains
 
   
   def perform(id)
-   
-
-    i=0
-    
       domains=Domain.find(id)
-   
-    
-    
-    
-    filters=Filter.all
-   
-      loaddomain(domains)
-      
-      matchfilter(false,filters)
-      
-    
-    #savedomains
+      scrape_domains(domains)
   end
   #end filter domain report
 

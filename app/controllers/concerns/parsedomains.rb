@@ -1,18 +1,19 @@
 module Parsedomains
   require 'curb'
-  @@html=""
-  @@pp=""
-  
-  @@domain=""
-  @@t=Array.new
-  @@f=Array.new
+
+  def scrape_domains(domain)
+    pp=loaddomain(domain)
+    filters=Filter.all
+    matchfilter(false,filters,pp)
+    
+  end
   
   def loaddomain (domain)
     max_retries=2
     times_retried=0
     
 
-    @@domain=domain
+    #@@domain=domain
     
     begin
         easy= Curl::Easy.new
@@ -22,29 +23,29 @@ module Parsedomains
         easy.useragent="Ruby"
         easy.timeout=30
         res=easy.perform
-        @@html =easy.body_str
+        html =easy.body_str
         ##@@html = HTTParty.get("http://www." + domain.domainname,follow_redirects: true)
         #puts page
       rescue Curl::Err::RecvError
-        savedomainwithFilter("recieve Error",0,@@domain.id)
+        savedomainwithFilter("recieve Error",0,domain.id)
         return
       rescue Net::OpenTimeout
-        updatedomain(false)
+        savedomainwithFilter("OpenTimeout",0,domain.id)
         return
       rescue Curl::Err::TooManyRedirectsError
-        savedomainwithFilter("Too Many Redirects",0,@@domain.id)
+        savedomainwithFilter("Too Many Redirects",0,domain.id)
         return
       rescue Curl::Err::HostResolutionError
-        savedomainwithFilter("Host Resolve Error",0,@@domain.id)
+        savedomainwithFilter("Host Resolve Error",0,domain.id)
         return
       rescue Curl::Err::TimeoutError
-        savedomainwithFilter("Timeout Error",0,@@domain.id)
+        savedomainwithFilter("Timeout Error",0,domain.id)
         return
       rescue Curl::Err::SSLPeerCertificateError
-        savedomainwithFilter("SSL Peer Error",0,@@domain.id)
+        savedomainwithFilter("SSL Peer Error",0,domain.id)
         return
       rescue Curl::Err::ConnectionFailedError
-        savedomainwithFilter("Connection Error",0,@@domain.id)
+        savedomainwithFilter("Connection Error",0,domain.id)
         return
         
       rescue Net::ReadTimeout => error
@@ -53,27 +54,27 @@ module Parsedomains
           puts "Failed to <do the thing>, retry #{times_retried}/#{max_retries}"
           retry
         else
-          savedomainwithFilter("Read Timeout Error",0,@@domain.id)
+          savedomainwithFilter("Read Timeout Error",0,domain.id)
           puts "Exiting script. <explanation of why this is unlikely to recover>"
           return
       end
     end
     
-    @scraped=@@html
-
+    pp=loadIntoNoko(html)
+    return
   end
   
-  def loadIntoNoko 
-    @@pp=Nokogiri(@@html)
-  end
-
-  
-  def matchfilter(show=false,filters)
+  def loadIntoNoko (html)
+    pp=Nokogiri(html)
     
-    if @@html.length < 30 
-        updatedomain(false)
-    end
-    loadIntoNoko
+    return
+  end
+
+  
+  def matchfilter(show=false,filters,pp)
+    
+    
+    
     
     fil=Hash.new
     filters.each do |f|
@@ -81,17 +82,17 @@ module Parsedomains
       case f.attr
       
       when "src"
-        if !@@pp.css(f.selector)[0].nil?
-          findHTML=@@pp.css(f.selector)[0]["src"]
+        if !pp.css(f.selector)[0].nil?
+          findHTML=pp.css(f.selector)[0]["src"]
           
         end
         
       when "text"
-        findHTML=@@pp.css(f.selector).text
+        findHTML=pp.css(f.selector).text
       
       when "htmllength"
-        if @@html.length < f.regex.to_i
-          savedomainwithFilter(f.name,0,@@domain.id)
+        if pp.css('html').first.to_s.size < f.regex.to_i
+          savedomainwithFilter(f.name,0,domain.id)
           matched="fa-check"
           fil[f.id]=matched
           fil
@@ -104,14 +105,14 @@ module Parsedomains
       if findHTML =~ Regexp.new(f.regex)
         
         #f.matched="fa-check"
-        savedomainwithFilter(f.name,0,@@domain.id)
+        savedomainwithFilter(f.name,0,domain.id)
         matched="fa-check"
         fil[f.id]=matched
           fil
         return fil
       else
         #f.matched="fa-ban"
-        savedomainwithFilter("NOT MATCHED",1,@@domain.id)
+        savedomainwithFilter("NOT MATCHED",1,domain.id)
         matched="fa-ban"
         #true
       end
@@ -123,25 +124,7 @@ module Parsedomains
     fil
   end
   
-  def updatedomain(result)
-    if result==true
-      @@t<<@@domain.id
-    else
-      @@f<<@@domain.id
-    end
-    
-   # @@domain.haswebsite=result
-    #@@domain.scraped=true
-    #@@domain.save
-  end
-  
-  def savedomains
-    ActiveRecord::Base.connection_pool.with_connection do |c|
-      
-      Domain.where(:id =>@@t).update_all(:haswebsite => 1)
-      #Domain.where(:id =>@@f).update_all(:haswebsite => 0)
-    end
-  end
+
   
   def savedomainwithFilter(filtername,result,id)
     ActiveRecord::Base.connection_pool.with_connection do |c|
