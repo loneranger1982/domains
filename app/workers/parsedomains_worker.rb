@@ -5,12 +5,12 @@ class ParsedomainsWorker
   sidekiq_options queue: 'parsedomains'
   
   def perform(id)
+    begin
       domains=Domain.find(id)
-     
-      
-      unless domains.empty?
-        scrape_domains(domains)
-      end
+      scrape_domains(domains)
+      rescue ActiveRecord::RecordNotFound
+        return
+    end
   end
   #end filter domain report
 
