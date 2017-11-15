@@ -13,7 +13,7 @@ class ParsedomainsWorker
    
     
     
-    total domains.count
+    
     filters=Filter.all
    
       loaddomain(domains)
