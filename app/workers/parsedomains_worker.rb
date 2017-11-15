@@ -15,15 +15,13 @@ class ParsedomainsWorker
     
     total domains.count
     filters=Filter.all
-    domains.each do |d|
-      i=i+1
-      at i,"nearly There"
-      loaddomain(d)
+   
+      loaddomain(domains)
       
       matchfilter(false,filters)
       
-    end
-    savedomains
+    
+    #savedomains
   end
   #end filter domain report
 
