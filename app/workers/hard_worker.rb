@@ -39,6 +39,7 @@ class HardWorker
        end
      
       if Time.strptime(hash['Auction End Time'],"%m/%d/%Y %I:%M %p (%Z)").to_i < Time.now.to_i
+        i=i+440
         next
       end
       begin

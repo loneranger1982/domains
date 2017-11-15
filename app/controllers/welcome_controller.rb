@@ -6,7 +6,8 @@ require 'sidekiq/api'
     @websites=Domain.where(haswebsite: true).count
     @expired=Domain.where("auctionendtime < ?",Time.now.to_i).count
     @jobs=Sidekiq::Workers.new
-    @queue=Sidekiq::Queue.new
+    @queueSize=Sidekiq::Queue.new.size
+    @queueLatency=Sidekiq::Queue.new.latency
   end
   
   def canceljob
