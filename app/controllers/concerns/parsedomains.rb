@@ -60,7 +60,7 @@ module Parsedomains
       end
     end
     
-    pp=loadIntoNoko(html)
+    html
     return
   end
   
@@ -71,11 +71,11 @@ module Parsedomains
   end
 
   
-  def matchfilter(show=false,filters,pp)
+  def matchfilter(show=false,filters,html)
     
     
     
-    
+    pp=Nokogiri(html)
     fil=Hash.new
     filters.each do |f|
       
