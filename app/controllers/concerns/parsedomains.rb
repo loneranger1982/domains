@@ -27,25 +27,25 @@ module Parsedomains
         ##@@html = HTTParty.get("http://www." + domain.domainname,follow_redirects: true)
         #puts page
       rescue Curl::Err::RecvError
-        savedomainwithFilter("recieve Error",0,domain.id)
+        savedomainwithFilter("recieve Error",0,domain)
         return
       rescue Net::OpenTimeout
-        savedomainwithFilter("OpenTimeout",0,domain.id)
+        savedomainwithFilter("OpenTimeout",0,domain)
         return
       rescue Curl::Err::TooManyRedirectsError
-        savedomainwithFilter("Too Many Redirects",0,domain.id)
+        savedomainwithFilter("Too Many Redirects",0,domain)
         return
       rescue Curl::Err::HostResolutionError
-        savedomainwithFilter("Host Resolve Error",0,domain.id)
+        savedomainwithFilter("Host Resolve Error",0,domain)
         return
       rescue Curl::Err::TimeoutError
-        savedomainwithFilter("Timeout Error",0,domain.id)
+        savedomainwithFilter("Timeout Error",0,domain)
         return
       rescue Curl::Err::SSLPeerCertificateError
-        savedomainwithFilter("SSL Peer Error",0,domain.id)
+        savedomainwithFilter("SSL Peer Error",0,domain)
         return
       rescue Curl::Err::ConnectionFailedError
-        savedomainwithFilter("Connection Error",0,domain.id)
+        savedomainwithFilter("Connection Error",0,domain)
         return
         
       rescue Net::ReadTimeout => error
@@ -92,7 +92,7 @@ module Parsedomains
       
       when "htmllength"
         if pp.css('html').first.to_s.size < f.regex.to_i
-          savedomainwithFilter(f.name,0,domain.id)
+          savedomainwithFilter(f.name,0,domain)
           matched="fa-check"
           fil[f.id]=matched
           fil
@@ -105,14 +105,14 @@ module Parsedomains
       if findHTML =~ Regexp.new(f.regex)
         
         #f.matched="fa-check"
-        savedomainwithFilter(f.name,0,domain.id)
+        savedomainwithFilter(f.name,0,domain)
         matched="fa-check"
         fil[f.id]=matched
           fil
         return fil
       else
         #f.matched="fa-ban"
-        savedomainwithFilter("NOT MATCHED",1,domain.id)
+        savedomainwithFilter("NOT MATCHED",1,domain)
         matched="fa-ban"
         #true
       end
@@ -126,11 +126,11 @@ module Parsedomains
   
 
   
-  def savedomainwithFilter(filtername,result,id)
+  def savedomainwithFilter(filtername,result,domains)
     ActiveRecord::Base.connection_pool.with_connection do |c|
       
       #Domain.where(:id => id).update_all(:haswebsite => 0,:filter => filtername)
-      @@domain.update(:haswebsite => result,:filter => filtername)
+      domains.update(:haswebsite => result,:filter => filtername)
     end
     
   end
