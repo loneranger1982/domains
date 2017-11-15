@@ -14,7 +14,7 @@ class DomainController < ApplicationController
     
     @domain =Domain.find(params[:id])
    
-    savedomains
+    
     @fil=scrape_domains(params[:id])
     
 
