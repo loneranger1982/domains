@@ -3,6 +3,7 @@ module Parsedomains
 
   def scrape_domains(domain)
     pp=loaddomain(domain)
+    puts pp
     filters=Filter.all
     matchfilter(false,filters,pp)
     
@@ -11,9 +12,7 @@ module Parsedomains
   def loaddomain (domain)
     max_retries=2
     times_retried=0
-    
 
-    #@@domain=domain
     
     begin
         easy= Curl::Easy.new
@@ -60,8 +59,8 @@ module Parsedomains
       end
     end
     
-    html
-    return
+    
+    return html
   end
   
 
