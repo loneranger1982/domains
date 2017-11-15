@@ -5,7 +5,7 @@ module Parsedomains
     pp=loaddomain(domain)
     puts pp
     filters=Filter.all
-    matchfilter(false,filters,pp)
+    matchfilter(false,filters,pp,domain)
     
   end
   
@@ -65,7 +65,7 @@ module Parsedomains
   
 
   
-  def matchfilter(show=false,filters,html)
+  def matchfilter(show=false,filters,html,domain)
     
     
     require 'nokogiri'
