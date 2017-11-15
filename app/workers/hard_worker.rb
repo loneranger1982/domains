@@ -57,6 +57,7 @@ class HardWorker
       domains.source="GoDaddy Auctions"
      
       domains.save
+      ParsedomainsWorker.perform_async(domains.id)
       i=i+440
       at  i
       rescue ActiveRecord::RecordNotUnique => e
