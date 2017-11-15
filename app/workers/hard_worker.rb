@@ -7,11 +7,11 @@ class HardWorker
     require 'zip'
     i=0
     
-    ftp = Net::FTP.new
-    ftp.connect("ftp.godaddy.com",21)
-    ftp.login("auctions","")
-    ftp.passive=true
-    ftp.getbinaryfile('expiring_service_auctions.xml.zip',"godaddy.zip")
+    #ftp = Net::FTP.new
+    #ftp.connect("ftp.godaddy.com",21)
+    #ftp.login("auctions","")
+    #ftp.passive=true
+    #ftp.getbinaryfile('expiring_service_auctions.xml.zip',"godaddy.zip")
     Zip::File.open("godaddy.zip") do |zipfile|
       
       zipfile.each do |f|
