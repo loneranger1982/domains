@@ -54,10 +54,10 @@ IO.copy_stream(download, 'snapnames.zip')
   
   task scrape_true: :environment do
      domains=Domain.where(haswebsite: true).count
-    i=0
-    while i < domains
-      ParsedomainsWorker.perform_async(domains.id)
-      i=i+1
+    
+    domains.each do |d|
+      ParsedomainsWorker.perform_async(d.id)
+      
     end
   end
 end
