@@ -54,7 +54,7 @@ module Parsedomains
           puts "Failed to <do the thing>, retry #{times_retried}/#{max_retries}"
           retry
         else
-          savedomainwithFilter("Read Timeout Error",0,domain.id)
+          savedomainwithFilter("Read Timeout Error",0,domain)
           puts "Exiting script. <explanation of why this is unlikely to recover>"
           return
       end
