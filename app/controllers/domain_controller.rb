@@ -13,7 +13,7 @@ class DomainController < ApplicationController
     
     
     @domain =Domain.find(params[:id])
-   
+    @filter=Filter.all
     
     @fil=scrape_domains(@domain)
     
