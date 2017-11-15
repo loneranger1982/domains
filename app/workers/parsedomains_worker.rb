@@ -4,16 +4,13 @@ class ParsedomainsWorker
   include Parsedomains
 
   
-  def perform(limit=100,offset=0,haswebsite=false)
+  def perform(id)
    
 
     i=0
-    if haswebsite
-      domains=Domain.limit(limit).offset(offset).where(haswebsite: true)
-    else
-      domains=Domain.limit(limit).offset(offset).where(haswebsite: nil).order("id ASC")
-      #domains.update_all({scraped: true})
-    end
+    
+      domains=Domain.find(id)
+   
     
     
     total domains.count

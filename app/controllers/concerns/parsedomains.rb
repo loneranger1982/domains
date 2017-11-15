@@ -95,7 +95,7 @@ module Parsedomains
           matched="fa-check"
           fil[f.id]=matched
           fil
-          return fil
+          return
         end
         
       end
@@ -111,7 +111,7 @@ module Parsedomains
         return fil
       else
         #f.matched="fa-ban"
-        updatedomain(true)
+        savedomainwithFilter("NOT MATCHED",1,@@domain.id)
         matched="fa-ban"
         #true
       end
@@ -147,7 +147,7 @@ module Parsedomains
     ActiveRecord::Base.connection_pool.with_connection do |c|
       
       #Domain.where(:id => id).update_all(:haswebsite => 0,:filter => filtername)
-      @@domain.update(:haswebsite => 0,:filter => filtername)
+      @@domain.update(:haswebsite => result,:filter => filtername)
     end
     
   end

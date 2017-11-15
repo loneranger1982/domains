@@ -37,6 +37,7 @@ IO.copy_stream(download, 'snapnames.zip')
         domains.auctionendtime=Time.strptime(csv[2],"%m/%d/%Y")
         domains.source="SnapNames"
         domains.save
+        ParsedomainsWorker.perform_async(domains.id)
       end
     end
   end
