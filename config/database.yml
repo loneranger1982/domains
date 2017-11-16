@@ -14,9 +14,9 @@ default: &default
 development:
   <<: *default
   adapter: postgresql
-  username: ubuntu
+  username: martin
   password: porter
-  database: db/development
+  database: development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

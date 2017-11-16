@@ -1,0 +1,21 @@
+# Logfile created on 2017-11-16 16:35:40 +0000 by logger.rb/56438
+2017-11-16T16:35:42.420Z 6260 TID-gps81p72s INFO: Running in ruby 2.3.4p301 (2017-03-30 revision 58214) [x86_64-linux]
+2017-11-16T16:35:42.421Z 6260 TID-gps81p72s INFO: See LICENSE and the LGPL-3.0 for licensing details.
+2017-11-16T16:35:42.421Z 6260 TID-gps81p72s INFO: Upgrade to Sidekiq Pro for more features and support: http://sidekiq.org
+2017-11-16T16:35:42.421Z 6260 TID-gps81p72s INFO: Booting Sidekiq 5.0.5 with redis options {:id=>"Sidekiq-server-PID-6260", :url=>nil}
+2017-11-16T16:35:42.421Z 6260 TID-gps81p72s INFO: Starting processing, hit Ctrl-C to stop
+2017-11-16T16:36:00.497Z 6260 TID-gps8oqmlk HardWorker JID-81f6c7d62a4399b9aa47d7ed INFO: start
+2017-11-16T16:48:23.720Z 6260 TID-gps81p72s INFO: Shutting down
+2017-11-16T16:48:23.721Z 6260 TID-gps81p72s INFO: Terminating quiet workers
+2017-11-16T16:48:23.721Z 6260 TID-gps8oqnbo INFO: Scheduler exiting...
+2017-11-16T16:48:23.821Z 6260 TID-gps81p72s INFO: Pausing to allow workers to finish...
+2017-11-16T16:48:31.643Z 6260 TID-gps81p72s WARN: Terminating 1 busy worker threads
+2017-11-16T16:48:31.644Z 6260 TID-gps81p72s WARN: Work still in progress [#<struct Sidekiq::BasicFetch::UnitOfWork queue="queue:default", job="{\"class\":\"HardWorker\",\"args\":[],\"retry\":true,\"queue\":\"default\",\"jid\":\"81f6c7d62a4399b9aa47d7ed\",\"created_at\":1510850160.4962876,\"enqueued_at\":1510850160.4969482}">]
+2017-11-16T16:48:31.645Z 6260 TID-gps81p72s INFO: Pushed 1 jobs back to Redis
+2017-11-16T16:48:31.646Z 6260 TID-gps81p72s INFO: Bye!
+2017-11-16T16:48:59.011Z 6845 TID-gr5vsd1k4 INFO: Running in ruby 2.3.4p301 (2017-03-30 revision 58214) [x86_64-linux]
+2017-11-16T16:48:59.012Z 6845 TID-gr5vsd1k4 INFO: See LICENSE and the LGPL-3.0 for licensing details.
+2017-11-16T16:48:59.012Z 6845 TID-gr5vsd1k4 INFO: Upgrade to Sidekiq Pro for more features and support: http://sidekiq.org
+2017-11-16T16:48:59.012Z 6845 TID-gr5vsd1k4 INFO: Booting Sidekiq 5.0.5 with redis options {:id=>"Sidekiq-server-PID-6845", :url=>nil}
+2017-11-16T16:48:59.013Z 6845 TID-gr5vsd1k4 INFO: Starting processing, hit Ctrl-C to stop
+2017-11-16T16:49:04.601Z 6845 TID-gr5wfe3t4 HardWorker JID-0a0bef5dcd5045d2e36a77f7 INFO: start
