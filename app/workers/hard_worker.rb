@@ -1,79 +1,52 @@
 class HardWorker
   include Sidekiq::Worker
   include Sidekiq::Status::Worker
+  
 
-  def perform(*args)
-    require 'net/ftp'
-    require 'zip'
+  def perform(file)
+    require 'csv'
+    total 2500
+    message =0
+    domains=[]
     i=0
     
-    ftp = Net::FTP.new
-    ftp.connect("ftp.godaddy.com",21)
-    ftp.login("auctions","")
-    ftp.passive=true
-    ftp.getbinaryfile('expiring_service_auctions.xml.zip',"godaddy.zip")
-    Zip::File.open("godaddy.zip") do |zipfile|
-      
-      zipfile.each do |f|
+    #Dir.glob(Dir.pwd +"/converted_files/*.csv") do |item|
+    puts file
+      CSV.foreach(file,headers: true) do |row|
+        if row[0]=nil
+          next
+        end
+        puts row[0]
+        html=loadhtml(row[0])
+        d=Domain.new
+        d.domainname=row[0]
+        #d.link=item['link']
+        #d.auctionType=hash['Auction Type']
+        d.auctionendtime=Time.strptime(row[3],"%m/%d/%Y %I:%M %p (%Z)").to_i
+        d.price=row[4]
+        d.numberOfBids=row[5]
+        d.domainAge=row[6].to_i
+        d.valuation=row[8]
+        d.traffic=row[7].to_i
         
-        zipfile.extract(f,Dir.pwd+"/" + f.name){true}
-        
-      end
-      
-    end
-    
-    total 450000
-    message =0
-    parser = Saxerator.parser(File.new(Dir.pwd + "/expiring_service_auctions.xml"))
-    
-    domains=[]
-    parser.for_tag(:item).each do |item|
-      
-    timestart=Time.now.to_i
-      s=item['description']
-      details=s.split(',')
-      hash={}
-      details.each do |e|
-        kv=e.split(':',2)
-        hash[kv[0].to_s.strip]=kv[1].to_s.strip
-      end
-     
-      if Time.strptime(hash['Auction End Time'],"%m/%d/%Y %I:%M %p (%Z)").to_i < Time.now.to_i
-          
-        next
-      end
-
-      html=loadhtml(item['title'])
-        
-
-        
-      d=Domain.new
-      d.domainname=item['title']
-      d.link=item['link']
-      d.auctionType=hash['Auction Type']
-      d.auctionendtime=Time.strptime(hash['Auction End Time'],"%m/%d/%Y %I:%M %p (%Z)").to_i
-      d.price=hash['Price']
-      d.numberOfBids=hash['Number of Bids']
-      d.domainAge=hash['Domain Age'].to_i
-      d.valuation=hash['Valuation']
-      d.traffic=hash['Traffic'].to_i
-      d.isAdult=hash['IsAdult']=='true'? true: false
-      d.source="GoDaddy Auctions"
-      d.html=html
-      domains << d
-      #domains.save
-      #ParsedomainsWorker.perform_async(domains.id)
+        d.source="GoDaddy Auctions"
+        d.html=html
+        domains << d
         i=i+1
-        at  i,message
-      if i % 100 == 0
-        Domain.import domains, on_duplicate_key_ignore: true
-        domains=[]
+        at i
+        if i % 10
+          Domain.import domains, on_duplicate_key_ignore: true
+      domains=[]
+        end
+
       end
-      timeend=Time.now.to_i
-      message=((timeend-timestart) * 1000 * (450000-i))
-    end
-    Domain.import domains, on_duplicate_key_ignore: true
-    domains=[]
+      
+    #end
+
+
+
+
+   
   end
 
   def loadhtml(url)
