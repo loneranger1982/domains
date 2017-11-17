@@ -16,17 +16,17 @@ class HardWorker
         if row[0]=nil
           next
         end
-        puts row[0]
-        html=loadhtml(row[0])
+        
+        html=loadhtml(row[0].to_s)
         d=Domain.new
-        d.domainname=row[0]
+        d.domainname=row[0].to_s
         #d.link=item['link']
         #d.auctionType=hash['Auction Type']
-        d.auctionendtime=Time.strptime(row[3],"%m/%d/%Y %I:%M %p (%Z)").to_i
-        d.price=row[4]
-        d.numberOfBids=row[5]
+        d.auctionendtime=Time.strptime(row[3].to_s,"%m/%d/%Y %I:%M %p (%Z)").to_i
+        d.price=row[4].to_s
+        d.numberOfBids=row[5].to_s
         d.domainAge=row[6].to_i
-        d.valuation=row[8]
+        d.valuation=row[8].to_s
         d.traffic=row[7].to_i
         
         d.source="GoDaddy Auctions"
