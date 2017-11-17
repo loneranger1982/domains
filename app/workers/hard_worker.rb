@@ -13,13 +13,13 @@ class HardWorker
     #Dir.glob(Dir.pwd +"/converted_files/*.csv") do |item|
     puts file
       CSV.foreach(file,headers: true) do |row|
-        if row[0]=nil
-          next
-        end
+        puts row.to_s
+          
+     
         
         html=loadhtml(row[0].to_s)
         d=Domain.new
-        d.domainname=row[0].to_s
+        d.domainname=row[0]
         #d.link=item['link']
         #d.auctionType=hash['Auction Type']
         d.auctionendtime=Time.strptime(row[3].to_s,"%m/%d/%Y %I:%M %p (%Z)").to_i
