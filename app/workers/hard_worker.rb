@@ -13,11 +13,11 @@ class HardWorker
     #Dir.glob(Dir.pwd +"/converted_files/*.csv") do |item|
     puts file
       CSV.foreach(file,headers: true) do |row|
+
         puts row.to_s
-          
-     
         
-        html=loadhtml(row[0].to_s)
+        
+        html=loadhtml(row[0])
         d=Domain.new
         d.domainname=row[0]
         #d.link=item['link']
@@ -34,9 +34,9 @@ class HardWorker
         domains << d
         i=i+1
         at i
-        if i % 10
+        if i % 100
           Domain.import domains, on_duplicate_key_ignore: true
-      domains=[]
+          domains=[]
         end
 
       end
