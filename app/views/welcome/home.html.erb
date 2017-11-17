@@ -98,12 +98,13 @@
             <% at=Sidekiq::Status::at jid %>
             <% total=Sidekiq::Status::total jid %>
             <% data= Sidekiq::Status::get_all jid %>
+            <% message=Sidekiq::Status::message jid %>
             <% percent= at.to_f / total.to_f * 100 %>
             <%percent= percent.round(2) %>
             <tr>
               <td><%= process_id %></td>
               <td><%= data["worker"] %></td>
-              <td><%= Sidekiq::Status::status jid %></td>
+              <td><%= Sidekiq::Status::status jid %> - <%= message %></td>
               <td>
                 <div class="progress progress-xs">
                   <div class="progress-bar progress-bar-danager" style="width: <%= percent %>%;"/>
@@ -116,6 +117,8 @@
           </tbody>
           
         </table>
+
+        
       </div>
       </div>
     </div>
