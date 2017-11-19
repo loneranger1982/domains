@@ -34,7 +34,7 @@ class HardWorker
         domains << d
         i=i+1
         at i
-        if i % 100 =0
+        if i % 100 ==0
           Domain.import domains, on_duplicate_key_ignore: true
           domains=[]
         end
