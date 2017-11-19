@@ -1,7 +1,7 @@
 class HardWorker
   include Sidekiq::Worker
   include Sidekiq::Status::Worker
-  
+  sidekiq_options queue: 'download'
 
   def perform(file)
     require 'csv'

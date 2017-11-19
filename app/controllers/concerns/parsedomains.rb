@@ -80,7 +80,8 @@ module Parsedomains
           findHTML=pp.css(f.selector)[0]["src"]
           
         end
-        
+      when "metaurl"
+          findhtml=pp.css('meta').first['content']
       when "text"
         findHTML=pp.css(f.selector).text
       

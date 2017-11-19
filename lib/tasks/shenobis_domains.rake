@@ -5,10 +5,10 @@ namespace :shenobis_domains do
     require 'zip'
     
     
-    ftp = Net::FTP.new
-    ftp.connect("ftp.godaddy.com",21)
-    ftp.login("auctions","")
-    ftp.passive=true
+    #ftp = Net::FTP.new
+    #ftp.connect("ftp.godaddy.com",21)
+    #ftp.login("auctions","")
+    #ftp.passive=true
     #ftp.getbinaryfile('expiring_service_auctions.csv.zip',"godaddy.zip")
     #Zip::File.open("godaddy.zip") do |zipfile|
       
@@ -20,9 +20,9 @@ namespace :shenobis_domains do
       
     #end
     location=Dir.pwd + "/split_files/*.csv"
-    puts location
+    
     Dir.glob("split-files/*.csv").select do |item|
-      puts item
+      
       HardWorker.perform_async(item)
     end
 

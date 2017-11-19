@@ -103,7 +103,7 @@
             <%percent= percent.round(2) %>
             <tr>
               <td><%= process_id %></td>
-              <td><%= data["worker"] %></td>
+              <td><%= data["worker"] %><%= data%></td>
               <td><%= Sidekiq::Status::status jid %> - <%= message %></td>
               <td>
                 <div class="progress progress-xs">
