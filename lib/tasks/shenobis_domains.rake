@@ -68,7 +68,7 @@ IO.copy_stream(download, 'snapnames.zip')
      domains=Domain.where(scraped: nil)
     
     domains.each do |d|
-      ParsedomainsWorker.perform_asyncd.id)
+      ParsedomainsWorker.perform_async(d.id)
       
     end
     
