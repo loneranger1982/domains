@@ -5,7 +5,7 @@ class HardWorker
 
   def perform(file)
     require 'csv'
-    total 2500
+    total 5000
     message =0
     domains=[]
     i=0
@@ -14,7 +14,7 @@ class HardWorker
     puts file
       CSV.foreach(file,headers: true) do |row|
 
-        puts row.to_s
+       
         
         
         html=loadhtml(row[0])
@@ -34,7 +34,7 @@ class HardWorker
         domains << d
         i=i+1
         at i
-        if i % 100
+        if i % 100 =0
           Domain.import domains, on_duplicate_key_ignore: true
           domains=[]
         end

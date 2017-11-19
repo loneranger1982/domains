@@ -2,10 +2,10 @@ module Parsedomains
   require 'curb'
 
   def scrape_domains(domain)
-    pp=loaddomain(domain)
-    puts pp
+    #pp=loaddomain(domain)
+    #puts pp
     filters=Filter.all
-    matchfilter(false,filters,pp,domain)
+    matchfilter(false,filters,domain)
     
   end
   
@@ -65,11 +65,11 @@ module Parsedomains
   
 
   
-  def matchfilter(show=false,filters,html,domain)
+  def matchfilter(show=false,filters,domain)
     
     
     require 'nokogiri'
-    pp=Nokogiri(html)
+    pp=Nokogiri(domain.html)
     fil=Hash.new
     filters.each do |f|
       
