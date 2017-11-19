@@ -125,7 +125,7 @@ module Parsedomains
     ActiveRecord::Base.connection_pool.with_connection do |c|
       
       #Domain.where(:id => id).update_all(:haswebsite => 0,:filter => filtername)
-      domains.update(:haswebsite => result,:filter => filtername)
+      domains.update(:haswebsite => result,:filter => filtername,:scraped => true)
     end
     
   end
