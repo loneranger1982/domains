@@ -8,6 +8,8 @@ require 'sidekiq/api'
     @jobs=Sidekiq::Workers.new
     @queueSize=Sidekiq::Queue.new("parsedomains").size
     @queueLatency=Sidekiq::Queue.new("parsedomains").latency
+    @queueSize2=Sidekiq::Queue.new("downloads").size
+    @queueLatency2=Sidekiq::Queue.new("downloads").latency
   end
   
   def canceljob

@@ -103,7 +103,7 @@
             <%percent= percent.round(2) %>
             <tr>
               <td><%= process_id %></td>
-              <td><%= data["worker"] %><%= data%></td>
+              <td><%= data["worker"] %> - <%= data["args"]%></td>
               <td><%= Sidekiq::Status::status jid %> - <%= message %></td>
               <td>
                 <div class="progress progress-xs">
@@ -132,6 +132,10 @@
       <div class="box-header">
         Queued Jobs : <%= @queueSize %><br/>
         Queued Latency : <%= @queueLatency %>
+      </div>
+      <div class="box-header">
+        Queued Jobs : <%= @queueSize2 %><br/>
+        Queued Latency : <%= @queueLatency2 %>
       </div>
       </div>
     </div>
