@@ -81,6 +81,7 @@ module Parsedomains
     end
     fil=Hash.new
     filters.each do |f|
+      fil[f.id]="fa-ban"
       
       case f.attr
       
@@ -125,7 +126,7 @@ module Parsedomains
       end
     end
   rescue NoMethodError =>e 
-    fil[f.id]=matched
+
     return
   end  
     fil
