@@ -12,7 +12,9 @@ module Parsedomains
   def loaddomain (domain)
     max_retries=2
     times_retried=0
-
+    if domain.domainname == nil
+      return
+    end
     
     begin
         easy= Curl::Easy.new
