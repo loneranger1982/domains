@@ -69,7 +69,11 @@ module Parsedomains
     
     
     require 'nokogiri'
-    pp=Nokogiri(domain.html)
+    if domain.html==nil
+      pp=Nokogiri(loaddomain(domain.domainname))
+    else
+      pp=Nokogiri(domain.html)
+    end
     fil=Hash.new
     filters.each do |f|
       
