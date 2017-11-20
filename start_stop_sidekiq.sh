@@ -8,7 +8,7 @@ cd $PROJECT_DIR
 start_function(){
   LOGFILE=/home/domains/logs/sidekiq.log
   echo "Starting sidekiq..."
-  bundle exec sidekiq -d -L $LOGFILE -P $PIDFILE -q mailer,5 -q default -c 20 -e production
+  bundle exec sidekiq -d -L $LOGFILE -P $PIDFILE -q downloads,5 -q default -c 20 -e production
 }
 
 stop_function(){
