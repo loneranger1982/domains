@@ -1,8 +1,8 @@
 #!/bin/bash
 cmd=$1
-PROJECT_DIR=$2
+PROJECT_DIR=/var/www/domains/code
 
-PIDFILE=$PROJECT_DIR/tmp/pids/sidekiq.pid
+PIDFILE=$PROJECT_DIR/tmp/pids/sidekiq-download-$2.pid
 cd $PROJECT_DIR
 
 start_function(){
