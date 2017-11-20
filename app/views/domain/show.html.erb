@@ -18,7 +18,7 @@
       <% @filter.each do |f| %>
       <div style="padding:2px;background-color:#f3f3f3;border:1px solid #a9a9a9;margin:2px">
         <p><b>Name :</b> <%= f.name %> <b>Selector: </b> <%= f.selector %> </p>
-        <p><b>Regex: </b> <%= f.regex %> <span class="fa <%= if(definded?(@fil[f.id]).nil?) else @fil[f.id] end %>" style="color:red" /></p>
+        <p><b>Regex: </b> <%= f.regex %> <span class="fa <%= @fil[f.id] %>" style="color:red" /></p>
       </div>
       <% end %>
       </div>

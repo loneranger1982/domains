@@ -127,7 +127,7 @@ module Parsedomains
     end
   rescue NoMethodError =>e 
 
-    return
+    return fil
   end  
     fil
   end
