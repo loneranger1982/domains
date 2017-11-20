@@ -88,6 +88,9 @@ class HardWorker
       rescue Curl::Err::ConnectionFailedError
         html="Error"
         return
+      rescue Curl::Err::GotNothingError
+        html="returned Nothing"
+        return
         
       rescue Net::ReadTimeout => error
         if times_retried < max_retries
