@@ -70,7 +70,7 @@ module Parsedomains
     
     require 'nokogiri'
     if domain.html==nil
-      html=loaddomain(domain.domainname)
+      html=loaddomain(domain)
       pp=Nokogiri(html)
     else
       pp=Nokogiri(domain.html)
