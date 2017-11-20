@@ -67,7 +67,7 @@ module Parsedomains
   
   def matchfilter(show=false,filters,domain)
     
-    
+  begin  
     require 'nokogiri'
     if domain.html==nil
       html=loaddomain(domain)
@@ -124,7 +124,9 @@ module Parsedomains
         fil[f.id]=matched
       end
     end
-    
+  rescue NoMethodError =>e 
+    return
+  end  
     fil
   end
   
