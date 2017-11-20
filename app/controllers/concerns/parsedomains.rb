@@ -125,6 +125,7 @@ module Parsedomains
       end
     end
   rescue NoMethodError =>e 
+    fil[f.id]=matched
     return
   end  
     fil
