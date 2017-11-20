@@ -71,6 +71,10 @@ module Parsedomains
     require 'nokogiri'
     if domain.html==nil
       html=loaddomain(domain)
+      if html==nil 
+        savedomainwithFilter("Returned Blank",0,domain)
+        return
+      end
       pp=Nokogiri(html)
     else
       pp=Nokogiri(domain.html)
