@@ -86,14 +86,21 @@ module Parsedomains
       case f.attr
       
       when "src"
-        
+        if (defined?(pp.css(f.selector).first["src"])).nil?
+
+        else
           findHTML=pp.css(f.selector).first["src"]
-          
+        end
         
       when "metaurl"
+         if (defined?(pp.css('meta').first['content'])).nil?
+
+        else
           findhtml=pp.css('meta').first['content']
+        end
       when "text"
         findHTML=pp.css(f.selector).text
+      
       
       when "htmllength"
         if pp.css('html').first.to_s.size < f.regex.to_i
