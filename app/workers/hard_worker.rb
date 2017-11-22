@@ -91,6 +91,9 @@ class HardWorker
       rescue Curl::Err::GotNothingError
         html="returned Nothing"
         return
+      rescue Curl::Err::SSLCACertificateError
+        html="Error"
+        return
         
       rescue Net::ReadTimeout => error
         if times_retried < max_retries
