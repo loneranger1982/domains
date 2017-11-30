@@ -1,8 +1,8 @@
 <?php
 
 $host="localhost";
-$username="ubuntu";
-$password="porter1281";
+$username="root";
+$password="BrookePorter1281";
 
 $conn=new mysqli($host,$username,$password);
 
