@@ -15,8 +15,14 @@ if($result->num_rows > 0){
 	while($row=$result->fetch_assoc()){
 		
 		$html=getHTML("http://www." . $row['domainname']);
-		$sqlUpdate="update domains set html='$html',scraped=true WHERE id=" .$row['id'];
-		echo $sqlUpdate;
+		$find=runFilters($html);
+		if($find !=false){
+			$sqlUpdate="update domains set haswebsite=false,filter='$find',scraped=true WHERE id=" .$row['id'];
+		}else{
+			$sqlUpdate="update domains set haswebsite=true,filter='$find',scraped=true WHERE id=" .$row['id'];
+		}
+		
+		
 		$conn->query($sqlUpdate);
 	}
 }
@@ -37,5 +43,36 @@ function getHTML($domain){
 	curl_close($ch);
 
 	return $result;
+}
+
+function runFilters($html){
+	$htmlDom=new simple_html_dom();
+
+	$htmlDom->load($html);
+
+	$filtersSQL="select * from filters";
+	$result=$conn->query($filtersSQL);
+	while($row=$result->fetch)assoc()){
+		$items=$html->find($row['selector'])
+		foreach($items as $find){
+			switch ($row['attr']){
+				case "text":
+					if($find->outertext == $row['regex']){
+					return $row['name'];
+			
+					}
+				break;
+
+				case "src":
+					if($find->src == $row['regex']){
+					return $row['name'];
+			
+					}
+				break;
+			}
+			
+		}
+	}
+	return false;
 }
 ?>
