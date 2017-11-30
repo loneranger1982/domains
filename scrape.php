@@ -1,10 +1,13 @@
 <?php
-include 'simple_html_dom.php';
+class scrape {
+$conn=""
+function scrapeWebsite(){
+	include 'simple_html_dom.php';
 $host="localhost";
 $username="root";
 $password="BrookePorter1281";
 $db="domains";
-$conn=new mysqli($host,$username,$password,$db);
+$this->conn=new mysqli($host,$username,$password,$db);
 
 $sql="select * from domains where scraped is NULL LIMIT 100";
 
@@ -23,13 +26,15 @@ if($result->num_rows > 0){
 		}
 		
 		
-		$conn->query($sqlUpdate);
+		$this->conn->query($sqlUpdate);
 	}
 }
 
 
 
-mysqli_close($conn);
+mysqli_close($this->conn);
+}
+
 
 function getHTML($domain){
 	$ch = curl_init();
@@ -51,9 +56,9 @@ function runFilters($html){
 	$htmlDom->load($html);
 
 	$filtersSQL="select * from filters";
-	$result=$conn->query($filtersSQL);
-	while($row=$result->fetch)assoc()){
-		$items=$html->find($row['selector'])
+	$result=$this->conn->query($filtersSQL);
+	while($row=$result->fetch_assoc()){
+		$items=$html->find($row['selector']);
 		foreach($items as $find){
 			switch ($row['attr']){
 				case "text":
@@ -74,5 +79,6 @@ function runFilters($html){
 		}
 	}
 	return false;
+}
 }
 ?>
