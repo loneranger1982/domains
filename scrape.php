@@ -8,7 +8,7 @@ $conn=new mysqli($host,$username,$password);
 
 $sql="select * from domains where scraped is NULL LIMIT 100";
 
-$result=$conn->query($sql)
+$result=$conn->query($sql);
 
 if($result->num_rows > 0){
 	while($row=$result->fetch_assoc()){
