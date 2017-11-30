@@ -6,9 +6,9 @@ PIDFILE=$PROJECT_DIR/tmp/pids/sidekiq-download-$2.pid
 cd $PROJECT_DIR
 
 start_function(){
-  LOGFILE=/home/domains/logs/sidekiq.log
+  LOGFILE=/home/domains/logs/sidekiq-{$2}.log
   echo "Starting sidekiq..."
-  bundle exec sidekiq -d -L $LOGFILE -P $PIDFILE -q downloads,5 -q default -c 20 -e production
+  bundle exec sidekiq -d -L $LOGFILE -P $PIDFILE -q download,5 -q default -c 20 -e production
 }
 
 stop_function(){
