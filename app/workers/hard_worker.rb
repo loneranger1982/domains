@@ -19,7 +19,7 @@ class HardWorker
         end
         
         
-        html=loadhtml(row[0])
+        
         d=Domain.new
         d.domainname=row[0]
         #d.link=item['link']
@@ -32,7 +32,7 @@ class HardWorker
         d.traffic=row[7].to_i
         
         d.source="GoDaddy Auctions"
-        d.html=html
+        
         domains << d
         i=i+1
         at i
@@ -51,61 +51,5 @@ class HardWorker
    
   end
 
-  def loadhtml(url)
-    max_retries=2
-    times_retried=0
-
-    
-    begin
-      easy= Curl::Easy.new
-      easy.follow_location=true
-      easy.max_redirects=3
-      easy.url="http://www." + url
-      easy.useragent="Ruby"
-      easy.timeout=30
-      res=easy.perform
-      html =easy.body_str
-        ##@@html = HTTParty.get("http://www." + domain.domainname,follow_redirects: true)
-        #puts page
-      rescue Curl::Err::RecvError
-          html="Error"
-        return
-      rescue Net::OpenTimeout
-        html="Error"
-        return
-      rescue Curl::Err::TooManyRedirectsError
-        html="Error"
-        return
-      rescue Curl::Err::HostResolutionError
-       html="Error"
-        return
-      rescue Curl::Err::TimeoutError
-        html="Error"
-        return
-      rescue Curl::Err::SSLPeerCertificateError
-        html="Error"
-        return
-      rescue Curl::Err::ConnectionFailedError
-        html="Error"
-        return
-      rescue Curl::Err::GotNothingError
-        html="returned Nothing"
-        return
-      rescue Curl::Err::SSLCACertificateError
-        html="Error"
-        return
-        
-      rescue Net::ReadTimeout => error
-        if times_retried < max_retries
-          times_retried += 1
-          html="Error"
-          retry
-        else
-          html="Error"
-          return
-        end
-      end
-
-    return html
-  end
+  
 end
