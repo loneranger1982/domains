@@ -51,7 +51,9 @@ module Parsedomains
       rescue Curl::Err::SSLCACertificateError
         savedomainwithFilter("SSL Peer Error",0,domain)
         return
-        
+      rescue Curl::Err::GotNothingError
+        savedomainwithFilter("Got Nothing Error",0,domain)
+        return
       rescue Net::ReadTimeout => error
         if times_retried < max_retries
           times_retried += 1

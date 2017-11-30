@@ -1,24 +1,7 @@
 namespace :shenobis_domains do
   desc "TODO"
   task import_json: :environment do
-    require 'net/ftp'
-    require 'zip'
-    
-    
-    #ftp = Net::FTP.new
-    #ftp.connect("ftp.godaddy.com",21)
-    #ftp.login("auctions","")
-    #ftp.passive=true
-    #ftp.getbinaryfile('expiring_service_auctions.csv.zip',"godaddy.zip")
-    #Zip::File.open("godaddy.zip") do |zipfile|
-      
-      #zipfile.each do |f|
-        
-       # zipfile.extract(f,Dir.pwd+"/" + f.name){true}
-        
-      #end
-      
-    #end
+ 
     location=Dir.pwd + "/split_files/*.csv"
     
     Dir.glob("split-files/*.csv").select do |item|
@@ -35,9 +18,9 @@ namespace :shenobis_domains do
 
   task import_snapnames: :environment do
     begin
-require 'open-uri'
-download = open('https://www.snapnames.com/file_dl.sn?file=snpalist.zip')
-IO.copy_stream(download, 'snapnames.zip')
+    require 'open-uri'
+    download = open('https://www.snapnames.com/file_dl.sn?file=snpalist.zip')
+    IO.copy_stream(download, 'snapnames.zip')
     require 'zip'
     Zip::File.open("snapnames.zip") do |zipfile|
       

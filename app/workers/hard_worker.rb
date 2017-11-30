@@ -11,7 +11,7 @@ class HardWorker
     i=0
     
     #Dir.glob(Dir.pwd +"/converted_files/*.csv") do |item|
-    puts file
+   
       CSV.foreach(file,headers: true) do |row|
           timeauction=Time.strptime(row[3].to_s,"%m/%d/%Y %I:%M %p (%Z)").to_i
         if timeauction < Time.now.to_i
