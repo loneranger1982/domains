@@ -58,6 +58,10 @@ function getHTML($domain){
 	curl_setopt($ch,CURLOPT_FOLLOWLOCATION,true);
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,30);
 	curl_setopt($ch, CURLOPT_TIMEOUT, 30); 
+	curl_setopt($curlHandle, CURLOPT_HTTPHEADER, array(
+    'Connection: Keep-Alive',
+    'Keep-Alive: 300'
+));
 	curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 	curl_setopt($ch,CURLOPT_SSL_VERIFYHOST, false); 
 	curl_setopt($ch,CURLOPT_SSL_VERIFYPEER, false);  
