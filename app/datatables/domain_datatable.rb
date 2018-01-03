@@ -41,7 +41,8 @@ private
   end
 
   def fetch_products
-    products = Domain.order("id ASC")
+    #products = Domain.order("id ASC")
+    products = Domain.order("#{sort_column} #{sort_direction}")
     products = products.page(page).per_page(per_page)
     if params["search"]["value"].present?
       svalue= params['search']['value']
@@ -96,7 +97,7 @@ private
 
   def sort_column
     columns = %w[id domainName price numberOfBids valuation traffic isAdult auctionEndTime hasWebsite source]
-    
+    columns[params[:iSortCol_0].to_i]
     
   end
 
