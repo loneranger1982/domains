@@ -11,8 +11,12 @@ class ScraperController < ApplicationController
     @h=scraper_params
     
     @domainName = @h[:domainName]
-   
-    @scrapedDomain = HTTParty.get("http://www." + @h[:domainName])
+   require 'net/http'
+   require 'uri'
+
+   uri = URI.parse("http://www." + @h[:domainName])
+   response =NET::HTTP.get_response(uri)
+    @scrapedDomain = response
   #end scrape domain  
   end
   
