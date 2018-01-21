@@ -15,7 +15,7 @@ class ScraperController < ApplicationController
    require 'uri'
 
    uri = URI.parse("http://www." + @h[:domainName])
-   response =NET::HTTP.get_response(uri)
+   response =Net::HTTP.get_response(uri)
     @scrapedDomain = response
   #end scrape domain  
   end
