@@ -1,0 +1,571 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"run",
+				"runFilters"
+			],
+			[
+				"filter",
+				"filtersSQL"
+			],
+			[
+				"get",
+				"getHTML"
+			],
+			[
+				"mysql_c",
+				"mysql_connect"
+			],
+			[
+				"S",
+				"Status"
+			],
+			[
+				"dom",
+				"domainAge"
+			],
+			[
+				"auction",
+				"auctionendtime"
+			],
+			[
+				"domain",
+				"domainname"
+			],
+			[
+				"home",
+				"home_team"
+			],
+			[
+				"bet",
+				"betArray"
+			],
+			[
+				"js",
+				"json_decode"
+			],
+			[
+				"new",
+				"new_arr"
+			],
+			[
+				"text",
+				"textarea\tTag"
+			],
+			[
+				"messa",
+				"messageToken"
+			],
+			[
+				"da",
+				"dashboard\t(main_sidebar.php)"
+			],
+			[
+				"ha",
+				"has_permission\t(main_sidebar.php)"
+			],
+			[
+				"ionauth",
+				"ion_auth_acl"
+			],
+			[
+				"io",
+				"ion_auth\t(Dashboard.php)"
+			],
+			[
+				"ion",
+				"ion_auth_acl\t(Admin_perm.php)"
+			],
+			[
+				"add",
+				"additional_data"
+			],
+			[
+				"away",
+				"away_team"
+			],
+			[
+				"hom",
+				"home_team"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"Auth",
+				"Auth::user\t(sidebar.blade.php)"
+			],
+			[
+				"send",
+				"send_email"
+			],
+			[
+				"err",
+				"error_reporting"
+			],
+			[
+				"session",
+				"session_destroy"
+			],
+			[
+				"payPal",
+				"PayPalResult"
+			],
+			[
+				"review",
+				"reviewpayment"
+			],
+			[
+				"fields",
+				"fieldsLic"
+			],
+			[
+				"char",
+				"charsLength"
+			],
+			[
+				"pay",
+				"paypalResult"
+			],
+			[
+				"shopping",
+				"shopping_cart"
+			],
+			[
+				"PayP",
+				"PayPalResult"
+			],
+			[
+				"Pay",
+				"PayPalResult"
+			],
+			[
+				"setl",
+				"setlogpath"
+			],
+			[
+				"preg_ma",
+				"preg_match_all"
+			],
+			[
+				"movie",
+				"movieList"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"fun",
+				"fun\tfunction …"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"A",
+				"Phalcon\\Mvc\\Application"
+			],
+			[
+				"after",
+				"after_body_start"
+			],
+			[
+				"MER",
+				"MerchantData"
+			],
+			[
+				"pro",
+				"process_button_string"
+			],
+			[
+				"ord",
+				"OrderId"
+			],
+			[
+				"Me",
+				"Merchant_ID"
+			],
+			[
+				"form",
+				"form_action_url"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "in",
+		"selected_items":
+		[
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"set php",
+				"Set Syntax: PHP"
+			],
+			[
+				"set",
+				"Set Syntax: PHP"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"ls",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/I/railsDev/domains",
+		"/I/railsDev/domains/app",
+		"/I/railsDev/domains/app/controllers",
+		"/I/railsDev/domains/app/controllers/concerns",
+		"/I/railsDev/domains/app/datatables",
+		"/I/railsDev/domains/app/views",
+		"/I/railsDev/domains/app/views/admin",
+		"/I/railsDev/domains/app/views/domain",
+		"/I/railsDev/domains/app/views/welcome",
+		"/I/railsDev/domains/app/workers",
+		"/I/railsDev/domains/lib",
+		"/I/railsDev/domains/lib/tasks"
+	],
+	"file_history":
+	[
+		"/I/railsDev/domains/Gemfile",
+		"/I/railsDev/domains/app/workers/hard_worker.rb",
+		"/I/railsDev/domains/app/datatables/domain_datatable.rb",
+		"/C/Amber_com.gukmail.amber/AndroidManifest.xml",
+		"/I/railsDev/domains/start_stop_sidekiq.sh",
+		"/I/Ruby On Rails/simple_html_dom.php",
+		"/I/railsDev/domains/scrape.php",
+		"/I/railsDev/domains/app/controllers/scraper_controller.rb",
+		"/I/railsDev/domains/app/views/domain/show.html.erb",
+		"/I/railsDev/domains/app/controllers/concerns/parsedomains.rb",
+		"/I/railsDev/domains/app/controllers/domain_controller.rb",
+		"/I/railsDev/domains/app/controllers/welcome_controller.rb",
+		"/I/railsDev/domains/app/views/welcome/home.html.erb",
+		"/I/railsDev/domains/lib/tasks/shenobis_domains.rake",
+		"/I/railsDev/domains/db/migrate/20171116155525_add_column_html_to_domains.rb",
+		"/I/railsDev/domains/csv-split.rb",
+		"/C/Users/martin/log/expiring_service_auctions.csv/expiring_service_auctions.csv",
+		"/I/railsDev/domains/config/database.yml",
+		"/I/Ruby On Rails/config.yml",
+		"/I/projects/domains/config/environments/production.rb",
+		"/C/Users/martin/Documents/domains.dump",
+		"/P/Keys/private",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/factorio.xml",
+		"/C/Users/martin/AppData/Local/Temp/scp39607/home/ogpbot/OGP_User_Files/5/factorio/player-data.json",
+		"/C/Program Files (x86)/Steam/steamapps/common/Factorio/config-path.cfg",
+		"/C/Users/martin/Desktop/domains.json",
+		"/C/Users/martin/Desktop/all_expiring_auctions.json",
+		"/C/Users/martin/.ssh/id_rsa.pub",
+		"/P/Keys/temp.ppk",
+		"/C/Users/martin/.ssh/id_rsa",
+		"/C/Users/martin/AppData/Local/Temp/Temp1_auctions_ending_tomorrow.json.zip/auctions_ending_tomorrow.json",
+		"/C/Users/martin/Desktop/expiring_service_auctions.xml",
+		"/C/Users/martin/AppData/Local/Temp/Temp1_all_expiring_auctions.json.zip/all_expiring_auctions.json",
+		"/C/Users/martin/Desktop/pvp/locale/en/freeplay.cfg",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/config.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/module.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/index.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/include.inc.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/importCustomers.php.bk",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/test.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/info.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/install.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/trialController.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/Observer.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/template01.jpg",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/pdfinvoiceplus.css",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/Log.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/ServerPaymentController.php",
+		"/C/Users/martin/AppData/Local/Temp/ExpressZip-16056-2/accesslog_instant-quizzes.co.uk_7_26_2017.gz/accesslog_instant-quizzes.co.uk_7_26_2017",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/Api.php",
+		"/C/Users/martin/Desktop/magento/pdf/app/code/local/Magestore/Pdfinvoiceplus/controllers/Adminhtml/Pdfinvoiceplus/OrderController.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/OrderController 2.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/OrderController 3.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/View.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/View 2.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/Buttons.php",
+		"/C/Users/martin/Desktop/magento/pdf/app/code/local/Magestore/Pdfinvoiceplus/Model/Entity/Orderpdf.php",
+		"/C/Users/martin/Desktop/magento/pdf/app/code/local/Magestore/Pdfinvoiceplus/Helper/Variable.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/Variable.php",
+		"/C/Users/martin/Desktop/magento/pdf/app/code/local/Magestore/Pdfinvoiceplus/Helper/Pdf.php",
+		"/C/Users/martin/Desktop/magento/pdf/app/code/local/Magestore/Pdfinvoiceplus/Block/Adminhtml/Sales/Order/View.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/default.phtml",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/OrderController.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/Action.php",
+		"/C/Users/martin/Desktop/magento/pdf/app/code/local/Magestore/Pdfinvoiceplus/controllers/Adminhtml/Pdfinvoiceplus/SyncInfoController.php",
+		"/C/Users/martin/Desktop/magento/pdf/app/code/local/Magestore/Pdfinvoiceplus/controllers/Adminhtml/Pdfinvoiceplus/VariableController.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/InvoiceController.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/IndexController.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/Pdfinvoiceplus.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/Pdf 2.php",
+		"/C/Users/martin/Desktop/magento/pdf/app/design/adminhtml/default/default/template/pdfinvoiceplus/sales/order/totals.phtml",
+		"/C/Users/martin/Desktop/magento/pdf/app/design/adminhtml/default/default/template/pdfinvoiceplus/sales/order/view/items/renderer/default.phtml",
+		"/C/Users/martin/Desktop/magento/pdf/app/design/frontend/base/default/template/pdfinvoiceplus/pdfinvoiceplus.phtml",
+		"/C/Users/martin/Desktop/magento/pdf/app/etc/modules/Magestore_Pdfinvoiceplus.xml",
+		"/C/Users/martin/Desktop/magento/pdf/app/code/local/Magestore/Pdfinvoiceplus/Block/Pdf.php",
+		"/C/Users/martin/Desktop/magento/pdf/app/code/local/Magestore/Pdfinvoiceplus/etc/adminhtml.xml",
+		"/C/Users/martin/Desktop/magento/pdf/app/code/local/Magestore/Pdfinvoiceplus/etc/config.xml",
+		"/C/Users/martin/Desktop/magento/pdf/app/code/local/Magestore/Pdfinvoiceplus/controllers/Adminhtml/Pdfinvoiceplus/PdfinvoiceplusController.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/Items.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/Order.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/PdfinvoiceplusController.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/VariableController.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/Process.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/Variables.php",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/Pdf.php",
+		"/C/Users/martin/Desktop/magento/pdf/app/design/adminhtml/default/default/layout/pdfinvoiceplus.xml",
+		"/I/higham/sftp-config.json",
+		"/I/higham/header.php",
+		"/I/higham/style.css",
+		"/C/ProgramData/TechSmith/Camtasia Studio 9/RegInfo.ini",
+		"/C/Users/martin/Desktop/magento/9652/SUPEE-9767-1.9.3.2/app/design/frontend/base/default/template/persistent/checkout/onepage/billing.phtml",
+		"/C/Users/martin/Downloads/test.baf",
+		"/C/Users/martin/Downloads/RegInfo.ini",
+		"/C/Users/martin/Desktop/chat.html",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/Order 2.php",
+		"/C/Users/martin/Desktop/paypal-tls-test.php",
+		"/C/Users/martin/Downloads/livesportstrading 25%.baf",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/billing.phtml",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/wrapper.phtml",
+		"/C/Users/martin/Desktop/magento/9652/SUPEE-9767-1.9.3.2/app/design/frontend/base/default/template/checkout/onepage/billing.phtml",
+		"/I/instant/magetno.gitignore",
+		"/C/Users/martin/Desktop/magento/app/etc/config.xml",
+		"/I/higham/images/bg_menu.gif",
+		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/content-page.php",
+		"/I/higham/pwd",
+		"/P/Keys/bit-seed.txt",
+		"/C/Users/martin/AppData/Local/Temp/scp17410/home/magento/public_html/app/etc/local.xml",
+		"/C/Users/martin/Desktop/higham/index.php",
+		"/C/Users/martin/Desktop/higham/template-parts/content-page.php",
+		"/C/Users/martin/Desktop/checkreqs.sh",
+		"/C/Users/martin/AppData/Local/Temp/ExpressZip-19552-2/varnish.unixy.net-4.2.0-el7.tar/varnish.unixy.net-4.2.0-el7/uninstallvarnish",
+		"/C/Users/martin/AppData/Local/Temp/ExpressZip-19552-2/varnish.unixy.net-4.2.0-el7.tar/varnish.unixy.net-4.2.0-el7/rocket",
+		"/C/Users/martin/Downloads/IPVanish-L2TP (1).networkConnect",
+		"/C/Users/martin/Downloads/ReclaiMe.File.Recovery.Ultimate.v2.0.2093-DVT/dvt.nfo",
+		"/C/Users/martin/Downloads/config.inc (2).php",
+		"/C/Users/martin/Downloads/default_4.1.vcl",
+		"/C/Users/martin/Downloads/default_4.1 (1).vcl",
+		"/C/Users/martin/AppData/Local/Temp/ExpressZip-19552-2/varnish.unixy.net-4.2.0-el7.tar/varnish.unixy.net-4.2.0-el7/fs_x86_64/etc/varnish/security/breach/46_slr_et_rfi_attacks.vcl",
+		"/C/Users/martin/AppData/Local/Temp/ExpressZip-19552-2/varnish.unixy.net-4.2.0-el7.tar/varnish.unixy.net-4.2.0-el7/templates/varnish.small",
+		"/C/Users/martin/AppData/Local/Temp/ExpressZip-19552-2/varnish.unixy.net-4.2.0-el7.tar/varnish.unixy.net-4.2.0-el7/fs_x86_64/etc/varnish/security/breach/55_marketing.vcl",
+		"/C/Users/martin/AppData/Local/Temp/ExpressZip-19552-2/varnish.unixy.net-4.2.0-el7.tar/varnish.unixy.net-4.2.0-el7/fs_x86_64/cpanel/eu/unixyvarnish/index.live.php",
+		"/C/Users/martin/AppData/Local/Temp/ExpressZip-19552-2/varnish.unixy.net-4.2.0-el7.tar/varnish.unixy.net-4.2.0-el7/installvarnish",
+		"/E/projects/firebase-node/functions/index.js",
+		"/C/Users/martin/Desktop/font/README.md",
+		"/C/Users/martin/Desktop/font/app/code/community/Ebizmarts/MailChimp/sql/mailchimp_setup/mysql4-upgrade-1.1.5-1.1.5.6.php",
+		"/C/Users/martin/Desktop/font/app/code/community/Ebizmarts/MailChimp/sql/mailchimp_setup/mysql4-upgrade-1.1.5.6-1.1.6.php",
+		"/E/projects/totalgamblingweb/CI-AdminLTE/application/views/admin/_templates/header.php",
+		"/E/projects/totalgamblingweb/CI-AdminLTE/application/views/admin/tips/index.php"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"<project>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"domains",
+			"popWin",
+			"hingham",
+			"category",
+			"tip",
+			"chmod",
+			"Thank",
+			"menu",
+			"sub_menu",
+			".glyphicons",
+			"navbar_brand",
+			"_POST",
+			"background",
+			"customer_account_resetpassword",
+			"blue",
+			"http://dev.ytcvn.com/ytc_templates/magento/sm-maxshop1922",
+			"(/",
+			"http://dev.ytcvn.com/ytc_templates/magento/sm-maxshop1922",
+			"dev",
+			"Vokuro",
+			"Phlacon",
+			"Phalcon",
+			"file.php",
+			"CLI_CMD_LENGTH_LIMIT",
+			"Fields"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 100.0
+	},
+	"pinned_build_system": "",
+	"project": "temp.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"E:\\git\\server_setup\\serversetup.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 239.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
