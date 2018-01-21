@@ -24,7 +24,10 @@ if($result->num_rows > 0){
 
 		echo $row['domainname'];
 		$html=$this->getHTML("http://www." . $row['domainname']);
-		if(strlen($html)<150){
+		$sqlUpdate="update domains set html='$html' WHERE id=" .$row['id'];
+		$this->conn->query($sqlUpdate);
+		if(strlen($html)<10){
+
 			$sqlUpdate="update domains set html='$html',haswebsite=false,filter='BLANK RETURNED',scraped=true WHERE id=" .$row['id'];
 			$this->conn->query($sqlUpdate);
 			continue;	
