@@ -44,4 +44,4 @@ function get_url($url, $javascript_loop = 0, $timeout = 5) {
 			return array($content, $response);
 		}
 	}
-get_url("http://www.valleyofatlanta.org");
+echo get_url("http://www.valleyofatlanta.org");
