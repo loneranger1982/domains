@@ -27,6 +27,7 @@ if($result->num_rows > 0){
 		$sqlUpdate="update domains set html='$html' WHERE id=" .$row['id'];
 		$this->conn->query($sqlUpdate);
 		if(strlen($html)<10){
+
 			$sqlUpdate="update domains set html='$html',haswebsite=false,filter='BLANK RETURNED',scraped=true WHERE id=" .$row['id'];
 			$this->conn->query($sqlUpdate);
 			continue;	
