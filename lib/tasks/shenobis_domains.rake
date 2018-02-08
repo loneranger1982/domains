@@ -48,10 +48,11 @@ namespace :shenobis_domains do
   end
 
   task scrape_domains: :environment do
-     domains=Domain.where(scraped: nil)
+    include Parsedomains
+     domains=Domain.where(haswebsite: true).limit(100)
     
     domains.each do |d|
-      ParsedomainsWorker.perform_async(d.id)
+      scrape_domains(d)
       
     end
     
@@ -61,6 +62,7 @@ namespace :shenobis_domains do
      domains=Domain.where(haswebsite: true)
     
     domains.each do |d|
+
       ParsedomainsWorker.perform_async(d.id)
       
     end
