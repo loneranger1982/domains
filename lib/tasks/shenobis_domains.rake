@@ -49,7 +49,7 @@ namespace :shenobis_domains do
 
   task scrape_domains: :environment do
     include Parsedomains
-     domains=Domain.where(haswebsite: true).limit(100)
+     domains=Domain.where(haswebsite: true).limit(1000)
     
     domains.each do |d|
       scrape_domains(d)
