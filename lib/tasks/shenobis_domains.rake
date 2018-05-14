@@ -76,13 +76,14 @@ namespace :shenobis_domains do
       end
       
     end
+    require 'date'
       closeout=JSON.parse(File.read('closeout_listings.json'))
 
       closeout['data'].each do |d|
         domains=Domain.new
-        domains.domainname=d['domainname']
+        domains.domainname=d['domainName']
         domains.numberOfBids=d['numberOfBids']
-        domains.auctionendtime=d['auctionEndTime']
+        domains.auctionendtime=DateTime.rfc3339(d['auctionEndTime']).to_time.to_i
         domains.source="CloseOut"
         domains.save
 
