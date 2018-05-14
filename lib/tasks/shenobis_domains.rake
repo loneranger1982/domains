@@ -57,6 +57,37 @@ namespace :shenobis_domains do
     end
     
   end
+
+  task closeout: :environment do
+    require 'net/ftp'
+    ftp=Net::FTP.new
+    ftp.connect("ftp.godaddy.com")
+    ftp.login("auctions","")
+    ftp.passive=trueftp.getbinaryfile("closeout_listings.json.zip")
+   
+    require 'zip'
+    Zip::File.open("closeout_listings.json.zip") do |zipfile|
+      
+      zipfile.each do |f|
+        
+        zipfile.extract(f,Dir.pwd+"/" + f.name){true}
+        
+      end
+      
+    end
+      closeout=JSON.Parse(File.read('closeout_listings.json'))
+
+      closeout['data'].each do |d|
+        domains=Domain.new
+        domains.domainname=d['domainname']
+        domains.numberOfBids=d['numberOfBids']
+        domains.auctionendtime=d['auctionEndTime']
+        domains.source="CloseOut"
+        domains.save
+
+
+      end
+  end
   
   task scrape_true: :environment do
      domains=Domain.where(haswebsite: true)
