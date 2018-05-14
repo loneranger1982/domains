@@ -76,7 +76,7 @@ namespace :shenobis_domains do
       end
       
     end
-      closeout=JSON.Parse(File.read('closeout_listings.json'))
+      closeout=JSON.parse(File.read('closeout_listings.json'))
 
       closeout['data'].each do |d|
         domains=Domain.new
