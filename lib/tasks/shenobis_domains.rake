@@ -82,7 +82,7 @@ namespace :shenobis_domains do
         domains=Domain.new
         domains.domainname=d['domainname']
         domains.numberOfBids=d['numberOfBids']
-        domains.auctionendtime=Time.strptime(d['auctionEndTime'].to_s,"%m/%d/%Y").to_i
+        domains.auctionendtime=d['auctionEndTime'].to_i
         domains.source="CloseOut"
         domains.save
 
