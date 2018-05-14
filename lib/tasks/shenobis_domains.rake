@@ -63,7 +63,8 @@ namespace :shenobis_domains do
     ftp=Net::FTP.new
     ftp.connect("ftp.godaddy.com")
     ftp.login("auctions","")
-    ftp.passive=trueftp.getbinaryfile("closeout_listings.json.zip")
+    ftp.passive=true
+    ftp.getbinaryfile("closeout_listings.json.zip")
    
     require 'zip'
     Zip::File.open("closeout_listings.json.zip") do |zipfile|
