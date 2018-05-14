@@ -83,6 +83,8 @@ namespace :shenobis_domains do
         domains=Domain.new
         domains.domainname=d['domainName']
         domains.numberOfBids=d['numberOfBids']
+        domains.price=d['price']
+        domains.valuation=d['valuation']
         domains.auctionendtime=DateTime.rfc3339(d['auctionEndTime']).to_time.to_i
         domains.source="CloseOut"
         domains.save
