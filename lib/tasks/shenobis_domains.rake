@@ -77,6 +77,7 @@ namespace :shenobis_domains do
       
     end
     require 'date'
+    d= []
       closeout=JSON.parse(File.read('closeout_listings.json'))
 
       closeout['data'].each do |d|
