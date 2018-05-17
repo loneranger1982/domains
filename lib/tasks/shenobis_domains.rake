@@ -59,6 +59,8 @@ namespace :shenobis_domains do
   end
 
   task closeout: :environment do
+    dom=[]
+    i=0
     require 'net/ftp'
     ftp=Net::FTP.new
     ftp.connect("ftp.godaddy.com")
@@ -77,8 +79,7 @@ namespace :shenobis_domains do
       
     end
     require 'date'
-      d=[]
-      i=0
+      
       closeout=JSON.parse(File.read('closeout_listings.json'))
 
       closeout['data'].each do |d|
@@ -90,12 +91,12 @@ namespace :shenobis_domains do
         domains.auctionendtime=DateTime.rfc3339(d['auctionEndTime']).to_time.to_i
         domains.source="CloseOut"
         
-        d.push(domains) 
+        dom.push(domains) 
         i=i+1
         
         if i % 100 ==0
-          Domain.import d, on_duplicate_key_ignore: true
-          d=[]
+          Domain.import dom, on_duplicate_key_ignore: true
+          dom=[]
         end
 
       end
