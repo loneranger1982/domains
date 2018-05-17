@@ -90,7 +90,7 @@ namespace :shenobis_domains do
         domains.auctionendtime=DateTime.rfc3339(d['auctionEndTime']).to_time.to_i
         domains.source="CloseOut"
         
-        d << domains
+        d.push(domains) 
         i=i+1
         
         if i % 100 ==0
