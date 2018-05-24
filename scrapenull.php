@@ -26,7 +26,10 @@ if($result->num_rows > 0){
 		$html=$this->getHTML("http://www." . $row['domainname']);
 		echo $html . "<br/>";
 		$sqlUpdate="update domains set html='$html' WHERE id=" .$row['id'];
-		$this->conn->query($sqlUpdate);
+		$result=$this->conn->query($sqlUpdate);
+		if (!$result) {
+                 die('Invalid query: ' . mysql_error());
+                }
 		if(strlen($html)<10){
 
 			$sqlUpdate="update domains set html='$html',haswebsite=false,filter='BLANK RETURNED',scraped=true WHERE id=" .$row['id'];
