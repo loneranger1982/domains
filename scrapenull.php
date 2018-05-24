@@ -1,6 +1,6 @@
 <?php
 
-ini_set('memory_limit','16M');
+ini_set('memory_limit','160M');
 set_time_limit(800);
 class scrape {
 var $conn="";
@@ -11,7 +11,7 @@ $username="root";
 $password="BrookePorter1281";
 $db="domains";
 $this->conn=new mysqli($host,$username,$password,$db);
-echo $offset;
+
 $sql="select * from domains where html is NULL LIMIT $offset,100";
 
 $result=$this->conn->query($sql);
@@ -22,7 +22,7 @@ if($result->num_rows > 0){
 		$sqlUpdate="update domains set scraped=true WHERE id=" .$row['id'];
                 $this->conn->query($sqlUpdate);
 
-		echo $row['domainname'];
+		echo $row['domainname'] ."<br/>";
 		$html=$this->getHTML("http://www." . $row['domainname']);
 		$sqlUpdate="update domains set html='$html' WHERE id=" .$row['id'];
 		$this->conn->query($sqlUpdate);
@@ -75,7 +75,9 @@ function getHTML($url, $javascript_loop = 0, $timeout = 5) {
 		$content  = curl_exec($ch);
 		$response = curl_getinfo($ch);
 		curl_close($ch);
-
+if(curl_errno($ch)){
+    echo 'Curl error: ' . curl_error($ch);
+}
 		if ($response['http_code'] == 301 || $response['http_code'] == 302) {
 			ini_set("user_agent", "Mozilla/5.0 (Windows; U; Windows NT 5.1; rv:1.7.3) Gecko/20041001 Firefox/0.10.1");
 
