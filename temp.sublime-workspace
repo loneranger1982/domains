@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"close",
+				"closeout_listings.json"
+			],
+			[
+				"auctionend",
+				"auctionendtime"
+			],
+			[
 				"run",
 				"runFilters"
 			],
@@ -200,29 +208,63 @@
 	"buffers":
 	[
 		{
-			"file": "app/controllers/domain_controller.rb",
-			"settings":
-			{
-				"buffer_size": 1064,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/martin/Desktop/test.html",
-			"settings":
-			{
-				"buffer_size": 275,
-				"encoding": "UTF-8",
-				"line_ending": "Windows",
-				"name": "<html>"
-			}
-		},
-		{
 			"file": "/C/Users/martin/log/expiring_service_auctions.csv/closeout_listings.json/closeout_listings.json",
 			"settings":
 			{
 				"buffer_size": 78404148,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lib/tasks/shenobis_domains.rake",
+			"settings":
+			{
+				"buffer_size": 2709,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "db/schema.rb",
+			"settings":
+			{
+				"buffer_size": 3709,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/workers/hard_worker.rb",
+			"settings":
+			{
+				"buffer_size": 1123,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/domain/index.html.erb",
+			"settings":
+			{
+				"buffer_size": 2470,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/environments/production.rb",
+			"settings":
+			{
+				"buffer_size": 3808,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Gemfile",
+			"settings":
+			{
+				"buffer_size": 1959,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -298,18 +340,24 @@
 	[
 		"/I/railsDev/domains",
 		"/I/railsDev/domains/app",
-		"/I/railsDev/domains/app/controllers",
-		"/I/railsDev/domains/app/controllers/concerns",
-		"/I/railsDev/domains/app/datatables",
-		"/I/railsDev/domains/app/views",
-		"/I/railsDev/domains/app/views/scraper",
-		"/I/railsDev/domains/app/views/welcome",
 		"/I/railsDev/domains/app/workers",
-		"/I/railsDev/domains/lib",
-		"/I/railsDev/domains/lib/tasks"
+		"/I/railsDev/domains/db",
+		"/I/railsDev/domains/vendor",
+		"/I/railsDev/domains/vendor/bundle",
+		"/I/railsDev/domains/vendor/bundle/ruby",
+		"/I/railsDev/domains/vendor/bundle/ruby/2.3.0",
+		"/I/railsDev/domains/vendor/bundle/ruby/2.3.0/bundler",
+		"/I/railsDev/domains/vendor/bundle/ruby/2.3.0/bundler/gems",
+		"/I/railsDev/domains/vendor/bundle/ruby/2.3.0/gems"
 	],
 	"file_history":
 	[
+		"/C/Users/martin/Desktop/test.html",
+		"/I/railsDev/domains/app/controllers/concerns/parsedomains.rb",
+		"/I/railsDev/domains/scrape.php",
+		"/I/railsDev/domains/app/workers/parsedomains_worker.rb",
+		"/I/railsDev/domains/app/workers/hard_worker.rb",
+		"/C/Users/martin/log/expiring_service_auctions.csv/closeouts.xml/closeouts.xml",
 		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/AuctionsAPIRef-11-22-2017.pdf",
 		"/V/data/display.xml",
 		"/C/Users/martin/AppData/Local/Temp/Rar$DIa32908.13662/users.xml",
@@ -320,9 +368,6 @@
 		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/edit-quiz.tpl",
 		"/C/Users/martin/AppData/Local/Temp/fz3temp-1/add-quiz.php",
 		"/I/railsDev/domains/app/controllers/scraper_controller.rb",
-		"/I/railsDev/domains/scrape.php",
-		"/I/railsDev/domains/app/workers/parsedomains_worker.rb",
-		"/I/railsDev/domains/app/controllers/concerns/parsedomains.rb",
 		"/I/railsDev/domains/lib/tasks/shenobis_domains.rake",
 		"/I/railsDev/domains/app/views/scraper/scrapedomain.html.erb",
 		"/I/railsDev/domains/app/views/scraper/loadDomain.html.erb",
@@ -334,7 +379,6 @@
 		"/P/Backups/public_html/cronscript.sh",
 		"/P/Backups/public_html/cron.php",
 		"/I/railsDev/domains/Gemfile",
-		"/I/railsDev/domains/app/workers/hard_worker.rb",
 		"/I/railsDev/domains/app/datatables/domain_datatable.rb",
 		"/C/Amber_com.gukmail.amber/AndroidManifest.xml",
 		"/I/railsDev/domains/start_stop_sidekiq.sh",
@@ -435,13 +479,11 @@
 		"/I/higham/pwd",
 		"/P/Keys/bit-seed.txt",
 		"/C/Users/martin/AppData/Local/Temp/scp17410/home/magento/public_html/app/etc/local.xml",
-		"/C/Users/martin/Desktop/higham/index.php",
-		"/C/Users/martin/Desktop/higham/template-parts/content-page.php",
-		"/C/Users/martin/Desktop/checkreqs.sh"
+		"/C/Users/martin/Desktop/higham/index.php"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 27.0
 	},
 	"find_in_files":
 	{
@@ -498,24 +540,123 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/controllers/domain_controller.rb",
-					"semi_transient": true,
+					"file": "/C/Users/martin/log/expiring_service_auctions.csv/closeout_listings.json/closeout_listings.json",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1064,
+						"buffer_size": 78404148,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								84,
-								84
+								1345,
+								1345
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "lib/tasks/shenobis_domains.rake",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2709,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2397,
+								2397
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 972.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "db/schema.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3709,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 315.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/workers/hard_worker.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1123,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1073,
+								915
 							]
 						],
 						"settings":
@@ -531,54 +672,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/C/Users/martin/Desktop/test.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 275,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								176,
-								176
-							]
-						],
-						"settings":
-						{
-							"auto_name": "<html>",
-							"incomplete_sync": null,
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "/C/Users/martin/log/expiring_service_auctions.csv/closeout_listings.json/closeout_listings.json",
+					"buffer": 4,
+					"file": "app/views/domain/index.html.erb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 78404148,
+						"buffer_size": 2470,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1157,
-								1239
+								505,
+								505
 							]
 						],
 						"settings":
@@ -586,15 +697,81 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 62.0,
+						"translation.x": 0.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "config/environments/production.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3808,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								841,
+								841
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Gemfile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1959,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								41,
+								41
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -602,7 +779,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 27.0
 	},
 	"input":
 	{
@@ -643,7 +820,7 @@
 	"project": "temp.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 50.0
 	},
 	"save_all_on_build": true,
 	"select_file":
