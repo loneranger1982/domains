@@ -74,10 +74,11 @@ function getHTML($url, $javascript_loop = 0, $timeout = 5) {
 		curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
 		$content  = curl_exec($ch);
 		$response = curl_getinfo($ch);
-		curl_close($ch);
-if(curl_errno($ch)){
+		if(curl_errno($ch)){
     echo 'Curl error: ' . curl_error($ch);
 }
+		curl_close($ch);
+
 		if ($response['http_code'] == 301 || $response['http_code'] == 302) {
 			ini_set("user_agent", "Mozilla/5.0 (Windows; U; Windows NT 5.1; rv:1.7.3) Gecko/20041001 Firefox/0.10.1");
 
