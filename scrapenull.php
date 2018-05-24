@@ -24,6 +24,7 @@ if($result->num_rows > 0){
 
 		echo $row['domainname'] ."<br/>";
 		$html=$this->getHTML("http://www." . $row['domainname']);
+		$html = mysqli_real_escape_string($this->conn, $html);
 		echo $html . "<br/>";
 		$sqlUpdate="update domains set html='$html' WHERE id=" .$row['id'];
 		$result=$this->conn->query($sqlUpdate);
