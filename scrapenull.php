@@ -27,8 +27,8 @@ if($result->num_rows > 0){
 		$html = mysqli_real_escape_string($this->conn, $html);
 		echo $html . "<br/>";
 		$sqlUpdate="update domains set html='$html' WHERE id=" .$row['id'];
-		$result=$this->conn->query($sqlUpdate);
-		if (!$result) {
+		$result1=$this->conn->query($sqlUpdate);
+		if (!$result1) {
                  die('Invalid query: ' . mysqli_error($this->conn));
                 }
 		if(strlen($html)<10){
