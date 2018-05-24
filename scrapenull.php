@@ -12,7 +12,6 @@ $password="BrookePorter1281";
 $db="domains";
 $this->conn=new mysqli($host,$username,$password,$db);
 echo $offset;
-$sql="select * from domains where html is NULL LIMIT $offset,100";
 
 $result=$this->conn->query($sql);
 
