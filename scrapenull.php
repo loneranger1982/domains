@@ -24,6 +24,7 @@ if($result->num_rows > 0){
 
 		echo $row['domainname'] ."<br/>";
 		$html=$this->getHTML("http://www." . $row['domainname']);
+		echo $html . "<br/>";
 		$sqlUpdate="update domains set html='$html' WHERE id=" .$row['id'];
 		$this->conn->query($sqlUpdate);
 		if(strlen($html)<10){
